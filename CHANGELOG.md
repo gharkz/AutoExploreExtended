@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.0
+- Lawnmower path (multi-tool, on by default): explores and works the map in back-and-forth lanes as wide as your
+  sight, chunk by chunk, then nearest-first for stragglers. Covers the playable area only.
+- Lawnmower path for AutoExplore's own modes (experimental, off by default).
+- Fight in place (optional): never chase enemies; fight with what's in reach, then resume the route or the job.
+- Tool in Hand: the held tool also does its usual jobs on top of the preset.
+- Pickaxe & Axe Work: objects (trees, rocks), walls, or both; tool choice follows the game's own harvest rules.
+- Only seen tiles are worked; seen animals within a few tiles are sheared first.
+- Fixes: interrupted jobs retry instead of stalling the run; no more "nothing to do" with work left.
+
 ## 1.1.1
 The starter all_tools preset starts out of the cycle: multi-tool mode never appears until you turn a preset on.
 

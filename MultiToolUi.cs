@@ -21,7 +21,7 @@ namespace AutoExploreExtended
         }
 
         private static string Summary(MultiTool.Preset p) =>
-            p.Tools.Count == 0 ? L.T("(empty)") : p.Tools.Count == MultiTool.All.Length ? L.T("all tools") : L.F("{0} tools", p.Tools.Count);
+            (p.Tools.Count == 0 ? L.T("(empty)") : p.Tools.Count == MultiTool.All.Length ? L.T("all tools") : L.F("{0} tools", p.Tools.Count)) + (p.UseHeld ? L.T(" + in hand") : "");
 
         // Click a preset to put it in or take it out of the hotkey cycle; Edit picks its tools.
         private static void Manage(Action refresh, string moved = null, string displaced = null)
@@ -62,7 +62,7 @@ namespace AutoExploreExtended
                 });
             }
             string note = L.T("Click a preset to add it to or remove it from the cycle. The arrows set the cycle order.\nYou can't delete the last preset.\nName presets for what they do, e.g. trees_and_chests.");
-            w = UiTable.Open(L.T("Multi-tool presets"), rows, new[] { 0f, .30f, .48f, .55f, .62f, .74f, .87f, 1f }, 720,
+            w = UiTable.Open(L.T("Multi-tool presets"), rows, new[] { 0f, .27f, .50f, .56f, .62f, .73f, .86f, 1f }, 880,
                 UnityEngine.Mathf.Min(280 + rows.Count * 34, 680), footNote: note, corner: new List<(string, Action)>
                 {
                     (L.T("New Preset"), () => AskName(L.T("New preset"), "multitool_" + (MultiTool.Presets.Count + 1), nn => { MultiTool.Add(nn); reopen(); })),
@@ -87,9 +87,27 @@ namespace AutoExploreExtended
                     },
                 });
             }
+            rows.Add(new UiRow
+            {
+                Label = L.T("Tool in Hand"), Checked = p.UseHeld,
+                Click = r => { p.UseHeld = !p.UseHeld; MultiTool.Save(); UiTable.SetChecked(r, p.UseHeld); },
+                Hint = L.T("Whatever you're holding also does its usual jobs, on top of the tools above."),
+            });
+            rows.Add(new UiRow
+            {
+                Label = L.T("Pickaxe & Axe Work"), Cells = new[] { L.T(p.Pickaxe.ToString()) },
+                CellClick = new Action<UiRow, int>[] { (r, _) =>
+                {
+                    var modes = (MultiTool.PickaxeWork[])Enum.GetValues(typeof(MultiTool.PickaxeWork));
+                    UiTable.Choose(L.T("Pickaxe & Axe Work"), modes.Select(m => (L.T(m.ToString()), (Action)(() => { p.Pickaxe = m; MultiTool.Save(); UiTable.SetCell(r, 0, L.T(m.ToString())); }))).ToList(),
+                        Array.IndexOf(modes, p.Pickaxe));
+                } },
+            });
+            rows.Add(new UiRow { Label = L.T("Tool in Hand: whatever you're holding also does its usual jobs, on top of the tools above."), Note = true, Info = true });
+            rows.Add(new UiRow { Label = L.T("Pickaxe & Axe Work: Harvest takes trees, rocks and the like; Mine takes walls. Held tools follow it too."), Note = true, Info = true });
             rows.Add(new UiRow { Label = L.T("Each job uses the best one you carry. Jobs whose own setting is off are skipped."), Note = true, Info = true });
             UiTable.Window w = null;
-            w = UiTable.Open(L.F("Tools: {0}", name), rows, new[] { 0f, 1f }, 520, 520,
+            w = UiTable.Open(L.F("Tools: {0}", name), rows, new[] { 0f, .58f, 1f }, 720, 640,
                 corner: new List<(string, Action)> { (L.T("OK"), () => { w.Layer.Close(); done(); }) });
         }
 

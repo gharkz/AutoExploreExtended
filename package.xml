@@ -12,7 +12,9 @@ Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]
 
 Extends AutoExplore to use more tools, and adds a settings window for all of it. Select one of the newly supported tools, start AutoExplore as usual, and it works the whole map.
 
-New in 1.1: Multi-tool mode. Chop, reap, mine, dig, shear and unlock in a single pass, with AutoExplore swapping to your best tool for every job. No more running the same map once per tool.
+Multi-tool mode: chop, reap, mine, dig, shear and unlock in a single pass, with AutoExplore swapping to your best tool for every job. No more running the same map once per tool.
+
+New in 1.2: a lawnmower path that explores and works the map in back-and-forth lanes as wide as your sight, and fighting in place so runs don't wander off chasing enemies.
 
 Tools
 - Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like).
@@ -23,6 +25,9 @@ Tools
 
 Multi-tool mode
 - Named presets pick the tools: sickle, axe, pickaxe, shovel, shears, lockpick, crowbar. The sickle goes first on anything it can reap; lockpicks go before the crowbar.
+- Tool in Hand: whatever you're holding also does its usual jobs on top of the preset.
+- Pickaxe &amp; Axe Work: objects (trees, rocks), walls, or both. Tool choice follows the game's own rules.
+- Lawnmower path: lanes as wide as your sight, then nearest-first for stragglers. Seen animals within a few tiles go first.
 - Cycle presets on AutoExplore's mode key, or a key of their own. Reorder them with the arrows.
 
 Settings window
@@ -34,6 +39,8 @@ Filters
 - Per-tool material filters, with a checklist editor and common things to skip.
 
 Also
+- Fight in place (optional): never chase enemies; fight with what's in reach, then resume the route or the interrupted job.
+- Lawnmower path for AutoExplore's own modes too (experimental, off by default).
 - Using Instant Actions? Crowbar prying bypasses it so chests actually open (toggle in settings).
 - Includes my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]; its shearing steps aside while that mod is enabled.
 
@@ -47,7 +54,9 @@ Source: https://github.com/gharkz/AutoExploreExtended
 
 AutoExploreが使える道具を増やし、設定画面を追加します。新たに対応した道具を選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
 
-1.1の新機能：マルチツールモード。伐採、刈り取り、採掘、掘削、毛刈り、解錠を一巡でこなし、作業ごとに最良の道具に持ち替えます。
+マルチツールモード：伐採、刈り取り、採掘、掘削、毛刈り、解錠を一巡でこなし、作業ごとに最良の道具に持ち替えます。
+
+1.2の新機能：視界の幅の列でマップを往復して探索・作業する芝刈りルートと、敵を追いかけずその場で戦う設定。
 
 道具
 - バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開けます。
@@ -58,6 +67,9 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 
 マルチツール
 - プリセットで道具を選択。鎌で刈れるものは鎌が優先、ロックピックはバールより先。
+- 手に持った道具：持っている道具もプリセットに加えていつもの作業をします。
+- つるはしと斧の作業：物（木・岩）、壁、または両方。
+- 芝刈りルート：視界の幅の列で巡回。近くの見える動物は優先。
 - AutoExploreのモードキーか専用キーで切り替え、矢印で並べ替え。
 
 設定画面
@@ -67,6 +79,7 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 - 除外リストを名前付きで複数保存。道具ごとの素材フィルター。
 
 その他
+- その場で戦う（任意）：敵を追わず、届く範囲で戦ってからルートや作業に戻ります。
 - Instant Actions使用時も、バールのこじ開けはそれを無視して箱が開きます（設定で切替）。
 - 私の[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]の機能を含みます。あちらが有効な間はこちらの毛刈りは止まります。
 
@@ -78,7 +91,9 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 
 让AutoExplore能使用更多工具，并添加设置窗口。选中新支持的工具，照常启动AutoExplore，它就会处理整张地图。
 
-1.1新功能：多工具模式。伐木、收割、采矿、挖掘、剪毛、开锁一遍完成，每项工作都换用最好的工具。
+多工具模式：伐木、收割、采矿、挖掘、剪毛、开锁一遍完成，每项工作都换用最好的工具。
+
+1.2新功能：按视野宽度来回成行探索并工作的割草路线，以及不追击敌人的原地战斗。
 
 工具
 - 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等）。
@@ -89,6 +104,9 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 
 多工具
 - 用预设选择工具。能用镰刀收割的优先用镰刀；开锁器先于撬棍。
+- 手持工具：手中的工具也会在预设之外照常工作。
+- 镐和斧的工作：物体（树木、岩石）、墙壁或两者。
+- 割草路线：按视野宽度成行扫过。附近可见的动物优先。
 - 用AutoExplore的模式键或专用键切换，箭头调整顺序。
 
 设置窗口
@@ -98,6 +116,7 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 - 可命名保存多份排除列表；按工具的材质过滤。
 
 其他
+- 原地战斗（可选）：不追击敌人，用够得着的手段战斗，然后回到路线或工作。
 - 使用Instant Actions时，撬棍撬开会绕过它，箱子确实能打开（可在设置中切换）。
 - 包含我的[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]的功能；那个MOD启用时，本MOD的剪毛会停用。
 

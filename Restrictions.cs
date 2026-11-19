@@ -77,7 +77,7 @@ namespace AutoExploreExtended
         {
             var names = new List<string>();
             if (EClass._map != null)
-                EClass._map.ForeachCell(c => { if (c.obj != 0) names.Add(c.sourceObj.GetName()); });
+                MapScan.Playable(c => { if (c.obj != 0) names.Add(c.sourceObj.GetName()); });
             names.AddRange(EClass.sources.objs.rows.Select(r => r.GetName()));
             return names;
         }
@@ -88,7 +88,7 @@ namespace AutoExploreExtended
         {
             var names = new List<string>();
             if (EClass._map != null)
-                EClass._map.ForeachCell(c => { if (c.HasBlock) names.Add(c.GetBlockName()); });
+                MapScan.Playable(c => { if (c.HasBlock) names.Add(c.GetBlockName()); });
             names.AddRange(MiningObjs());
             return names;
         }
@@ -111,7 +111,7 @@ namespace AutoExploreExtended
         {
             var count = new Dictionary<string, int>();
             if (EClass._map != null)
-                EClass._map.ForeachCell(c => { if (c.HasBlock) { var n = c.GetBlockName(); count.TryGetValue(n, out var k); count[n] = k + 1; } });
+                MapScan.Playable(c => { if (c.HasBlock) { var n = c.GetBlockName(); count.TryGetValue(n, out var k); count[n] = k + 1; } });
             return count.OrderByDescending(kv => kv.Value).Take(8).Select(kv => kv.Key).ToList();
         }
 

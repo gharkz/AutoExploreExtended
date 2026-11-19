@@ -90,7 +90,7 @@ namespace AutoExploreExtended
         private static void Fill(AIActionFinder finder, List<AIAct> result)
         {
             result.RemoveAll(a => !(a is BaseTaskHarvest h && h.idEle == Dig));
-            EClass._map.ForeachCell(c =>
+            MapScan.Playable(c =>
             {
                 var p = new Point(c.x, c.z);
                 if (!finder.IsPointReachable(p, 1)) return;

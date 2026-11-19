@@ -207,6 +207,19 @@ namespace AutoExploreExtended
                 ("AutoExploreの切り替えキー：AutoExploreのモードを切り替えると、「複合」の後にプリセットが来ます。マルチツールの切り替えキー：専用のキーでオフと各プリセットを切り替え、AutoExploreのモードキーは通常のモードに戻ります。",
                  "AutoExplore切换键：切换AutoExplore的模式时，预设排在“综合”之后。多工具切换键：用专用键在关闭和各预设之间切换，AutoExplore的模式键则回到它自己的模式。"),
             ["The key that cycles Off and the presets, when presets use the Multi-Tool Toggle Hotkey."] = ("マルチツールの切り替えキーを使う場合に、オフと各プリセットを切り替えるキーです。", "使用多工具切换键时，用于在关闭和各预设之间切换的键。"),
+            ["Lawnmower path (back-and-forth lanes across the map)"] = ("芝刈りルート（マップを往復する列で巡回）", "割草路线（在地图上来回成行扫过）"),
+            ["Work the map in a sweeping route, chunk by chunk, instead of always the nearest job. Less back and forth; falls back to nearest-first when the route is done."] =
+                ("いつも最寄りの作業ではなく、区画ごとに巡回ルートでマップを処理します。行ったり来たりが減り、ルートが終わると最寄り優先に戻ります。",
+                 "不再总是选最近的工作，而是按区块沿扫荡路线处理地图。减少来回奔波；路线完成后恢复为就近优先。"),
+            ["Exploration"] = ("探索", "探索"),
+            ["Lawnmower path in AutoExplore's own modes (experimental)"] = ("AutoExplore本来のモードでも芝刈りルート（試験的）", "在AutoExplore自身的模式中也走割草路线（实验性）"),
+            ["Experimental: AutoExplore's own modes (Explore, Gather, Mining, Combined) cover the map in lawnmower lanes as wide as your sight, chunk by chunk, instead of always heading for the nearest unexplored tile or target. Falls back to nearest-first when the route is done."] =
+                ("試験的：AutoExplore本来のモード（探索・採取・採掘・複合）でも、いつも最寄りの未探索地点や対象へ向かう代わりに、視界の幅の列で区画ごとにマップを巡回します。ルートが終わると最寄り優先に戻ります。",
+                 "实验性：AutoExplore自身的模式（探索、采集、采矿、综合）也会按视野宽度的行、逐个区块扫过地图，而不是总去最近的未探索点或目标。路线完成后恢复就近优先。"),
+            ["Fight in place (never chase enemies)"] = ("その場で戦う（敵を追いかけない）", "原地战斗（不追击敌人）"),
+            ["Never chase enemies: fight with what's in reach (abilities, ranged, throwing, melee when adjacent), then carry on with the route or the job that was interrupted."] =
+                ("敵を追いかけず、届く範囲で戦います（能力、射撃、投擲、隣接時は近接）。その後、ルートや中断された作業を続けます。",
+                 "不追击敌人：用够得着的手段战斗（技能、远程、投掷、相邻时近战），然后继续路线或被打断的工作。"),
             ["Active preset"] = ("使用中のプリセット", "当前预设"),
             ["Presets"] = ("プリセット", "预设"),
             ["1 preset"] = ("1個のプリセット", "1个预设"),
@@ -228,6 +241,17 @@ namespace AutoExploreExtended
             ["Hotkey to cycle presets"] = ("プリセット切り替えのホットキー", "切换预设的快捷键"),
             ["Cycles multi-tool presets: Off, then each preset marked for the cycle, then Off again."] =
                 ("マルチツールのプリセットを切り替えます：オフ、切り替え対象の各プリセット、そしてオフに戻ります。", "切换多工具预设：关闭，然后依次为每个参与切换的预设，再回到关闭。"),
+            ["Tool in Hand"] = ("手に持った道具", "手持工具"),
+            ["Whatever you're holding also does its usual jobs, on top of the tools above."] = ("手に持っている道具も、上の道具に加えていつもの作業をします。", "手中拿着的工具也会在上述工具之外照常工作。"),
+            ["Tool in Hand: whatever you're holding also does its usual jobs, on top of the tools above."] =
+                ("手に持った道具：持っている道具も、上の道具に加えていつもの作業をします。", "手持工具：手中拿着的工具也会在上述工具之外照常工作。"),
+            ["Pickaxe & Axe Work"] = ("つるはしと斧の作業", "镐和斧的工作"),
+            ["Both"] = ("両方", "两者"),
+            ["Harvest"] = ("採取", "采集"),
+            ["Mine"] = ("採掘", "采矿"),
+            ["Pickaxe & Axe Work: Harvest takes trees, rocks and the like; Mine takes walls. Held tools follow it too."] =
+                ("つるはしと斧の作業：採取は木や岩など、採掘は壁が対象です。手に持った道具も同じ設定に従います。", "镐和斧的工作：采集针对树木、岩石等，采矿针对墙壁。手持工具也遵循此设置。"),
+            [" + in hand"] = (" ＋手持ち", " + 手持"),
             ["Sickle"] = ("鎌", "镰刀"),
             ["Lockpick"] = ("ロックピック", "开锁器"),
             ["Crowbar"] = ("バール", "撬棍"),

@@ -57,7 +57,7 @@ namespace AutoExploreExtended
             private static void Postfix(AIActionFinder __instance, List<AIAct> __result)
             {
                 if (!Ready) return;
-                EClass._map.ForeachCell(c =>
+                MapScan.Playable(c =>
                 {
                     var p = new Point(c.x, c.z);
                     if (IsTrack(p) && __instance.IsPointReachable(p, 1)) __result.Add(new ExploreTrack(p));

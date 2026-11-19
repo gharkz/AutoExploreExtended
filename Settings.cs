@@ -46,6 +46,7 @@ namespace AutoExploreExtended
                     if (g.Key == "Debug") continue;
                     var list = g.Select(d => ae[d]).ToList();
                     string name = g.Key;
+                    if (g.Key == "General") list.AddRange(Take("Exploration"));
                     if (g.Key == "Performance") { list.AddRange(debug); list.AddRange(Take("Debug")); debug = null; }
                     if (g.Key == "Restrictions") { list.AddRange(Take("Materials")); name = "Filters"; }
                     tabs.Add((name, list));
@@ -137,6 +138,9 @@ namespace AutoExploreExtended
                 return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (when shears tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "SkipPlatforms") return "Don't dig platforms (or the floor under them)";
             if (e.ConfigFile == own && e.Definition.Key == "TracksWhileMining") return "Dig tracks while mining (swaps to your best shovel)";
+            if (e.ConfigFile == own && e.Definition.Key == "FightInPlace") return "Fight in place (never chase enemies)";
+            if (e.ConfigFile == own && e.Definition.Key == "Sweep") return "Lawnmower path (back-and-forth lanes across the map)";
+            if (e.ConfigFile == own && e.Definition.Key == "SweepBaseModes") return "Lawnmower path in AutoExplore's own modes (experimental)";
             if (e.ConfigFile == own && e.Definition.Key == "CycleWith") return "Cycle presets with";
             if (e.ConfigFile == own && e.Definition.Key == "OwnKey") return "Multi-Tool Toggle Hotkey";
             if (e.Definition.Key == "SelfMenuEntry") return "Show in your own action menu (middle-click yourself)";

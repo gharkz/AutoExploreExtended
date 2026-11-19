@@ -16,7 +16,7 @@ namespace AutoExploreExtended
     //  - Crowbar / lockpick: opens every legal locked container (prying or picking), mainly for lockpicking experience;
     //    practice chests are always picked by hand (prying would destroy them). Karma/crime targets are excluded by default.
     // With one of these tools selected, AutoExplore's other gathering is set aside.
-    [BepInPlugin(Id, DisplayName, "1.1.1")]
+    [BepInPlugin(Id, DisplayName, "1.2.0")]
     [BepInDependency("yuof.elin.autoExplore.mod", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
@@ -33,7 +33,7 @@ namespace AutoExploreExtended
 
         private void Start()
         {
-            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); MultiTool.Bind(Config); gameObject.AddComponent<MultiToolKey>(); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.1.1 active."); }
+            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); MultiTool.Bind(Config); Sweep.Bind(Config); Combat.Bind(Config); gameObject.AddComponent<MultiToolKey>(); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Trace.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.2.0 active."); }
             catch (Exception e) { Logger.LogError(DisplayName + " disabled: " + e); }
         }
 

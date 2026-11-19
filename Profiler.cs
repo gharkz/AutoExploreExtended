@@ -15,6 +15,7 @@ namespace AutoExploreExtended
     internal class Profiler : MonoBehaviour
     {
         private static ConfigEntry<bool> on;
+        internal static bool On => on != null && on.Value;
         private static Harmony harmony;
         private static readonly Dictionary<MethodBase, (long ticks, int calls)> stats = new Dictionary<MethodBase, (long, int)>();
         private static int frames;

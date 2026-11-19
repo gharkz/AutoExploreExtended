@@ -44,7 +44,7 @@ namespace AutoExploreExtended
             file = Path.Combine(Path.GetDirectoryName(c.ConfigFilePath), Plugin.Id + ".multitool.json");
             try { data = File.Exists(file) ? JsonConvert.DeserializeObject<Data>(File.ReadAllText(file), new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace }) : null; } catch { data = null; }
             data = data ?? new Data();
-            if (data.Presets.Count == 0) data.Presets["all_tools"] = new Preset();
+            if (data.Presets.Count == 0) data.Presets["all_tools"] = new Preset { InCycle = false }; // off until the player turns it on: no surprise mode in the cycle
             foreach (var p in data.Presets.Values) p.Tools = (p.Tools ?? new List<string>()).Distinct().Where(t => Enum.IsDefined(typeof(Kind), t)).ToList(); // older files doubled the list
             data.Order = (data.Order ?? new List<string>()).Where(data.Presets.ContainsKey).Distinct().ToList();
             data.Order.AddRange(data.Presets.Keys.Where(k => !data.Order.Contains(k)).OrderBy(k => k));

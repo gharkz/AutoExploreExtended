@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+The starter all_tools preset starts out of the cycle: multi-tool mode never appears until you turn a preset on.
+
 ## 1.1.0
 Multi-tool mode: named presets of tools; one pass over the map, swapping to the best carried tool for each job.
 Sickle first on reapable plants; lockpick before crowbar. Presets join AutoExplore's mode key after Combined or use

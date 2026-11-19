@@ -17,7 +17,7 @@ System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore
 - A checklist editor beside the raw list.
 
 ## Also
-- Works with Instant Actions (prying and picking keep their normal length).
+- Accounts for the Instant Actions mod if you have it enabled.
 - Includes the [Auto-Explore Shearing Extension](https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390); its own shearing turns off while that mod is enabled.
 
 English, Japanese and Simplified Chinese. Translations: Claude (AI).

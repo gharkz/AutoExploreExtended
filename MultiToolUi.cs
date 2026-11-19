@@ -35,7 +35,7 @@ namespace AutoExploreExtended
                 string other = o[j]; MultiTool.Move(n, by);
                 w?.Layer.Close(); refresh(); Manage(refresh, n, other);
             };
-            var rows = new List<UiRow> { new UiRow { Label = L.T("Preset (in cycle)"), ColumnHeader = true, Cells = new[] { L.T("Tools"), "", "", "", "", "" } } };
+            var rows = new List<UiRow> { new UiRow { Label = L.T("Preset (in cycle)"), ColumnHeader = true, Cells = new[] { L.T("Tools"), "", "", "", "", "", "" } } };
             var order = MultiTool.Order.ToList();
             foreach (var name in order)
             {
@@ -44,14 +44,15 @@ namespace AutoExploreExtended
                 {
                     Label = n, Checked = p.InCycle,
                     Click = _ => { p.InCycle = !p.InCycle; MultiTool.Save(); reopen(); },
-                    Cells = new[] { Summary(p), "\u25B2", "\u25BC", L.T("Edit"), L.T("Rename"), L.T("Delete") },
-                    GreyCells = new[] { false, n == order[0], n == order[order.Count - 1], false, false, MultiTool.Presets.Count == 1 },
+                    Cells = new[] { Summary(p), "\u25B2", "\u25BC", L.T("Edit"), L.T("Duplicate"), L.T("Rename"), L.T("Delete") },
+                    GreyCells = new[] { false, n == order[0], n == order[order.Count - 1], false, false, false, MultiTool.Presets.Count == 1 },
                     CellClick = new Action<UiRow, int>[]
                     {
                         null,
                         (r, _) => move(n, -1),
                         (r, _) => move(n, 1),
                         (r, _) => EditTools(n, reopen),
+                        (r, _) => { MultiTool.Duplicate(n); reopen(); },
                         (r, _) => AskName(L.F("Rename {0}", n), n, nn => { MultiTool.Rename(n, nn); reopen(); }),
                         (r, _) =>
                         {
@@ -62,7 +63,7 @@ namespace AutoExploreExtended
                 });
             }
             string note = L.T("Click a preset to add it to or remove it from the cycle. The arrows set the cycle order.\nYou can't delete the last preset.\nName presets for what they do, e.g. trees_and_chests.");
-            w = UiTable.Open(L.T("Multi-tool presets"), rows, new[] { 0f, .27f, .50f, .56f, .62f, .73f, .86f, 1f }, 880,
+            w = UiTable.Open(L.T("Multi-tool presets"), rows, new[] { 0f, .24f, .44f, .50f, .56f, .66f, .78f, .89f, 1f }, 980,
                 UnityEngine.Mathf.Min(280 + rows.Count * 34, 680), footNote: note, corner: new List<(string, Action)>
                 {
                     (L.T("New Preset"), () => AskName(L.T("New preset"), "multitool_" + (MultiTool.Presets.Count + 1), nn => { MultiTool.Add(nn); reopen(); })),

@@ -44,15 +44,16 @@ namespace AutoExploreExtended
         internal static BaseTaskHarvest Task(Point p, Thing tool)
         {
             if (p == null || !p.IsInBounds || Dug.Contains(Key(p))) return null;
-            if (EClass._zone.IsPCFaction && p.cell.isModified) return null; // your own floors/objects at home
             // Tracks (objects the game harvests with a shovel); loose things are left alone.
             if (p.HasObj && p.sourceObj.reqHarvest?.Length > 0 && p.sourceObj.reqHarvest[0] == "digging")
             {
+                if (!OwnLand.ObjOk(p)) return null; // home rules
                 var h = new TaskHarvest { pos = p.Copy() };
                 h.SetTarget(EClass.pc, tool);
                 if (h.idEle == Dig && !h.IsTooHard && Materials.Allowed(h)) return h;
             }
             if (p.IsWater || p.HasObj || p.HasBlock || p.Installed != null) return null; // stairs are installed things
+            if (!OwnLand.FloorOk(p)) return null; // home rules: floors only from the home whitelist
             if (p.HasBridge && skipPlatforms.Value) return null; // the platform, and the floor under it, stay
             var task = new TaskDig { pos = p.Copy(), mode = TaskDig.Mode.RemoveFloor, owner = EClass.pc };
             if (task.GetHitResult() != HitResult.Valid) return null;

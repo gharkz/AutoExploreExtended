@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.1
+- Own land: natural things too (optional, General tab): at home, harvest wild plants, stones, trees and rocks even on
+  tiles you've changed; crops on farm fields stay protected. Chests and storage are never touched.
+- Home walls & floors whitelist (with an on/off checkbox): walls and floors at home are only mined or dug when named on
+  it. Named lists, each base remembers its own; suggestions from the current map first (water left out).
+- Duplicate button on every list window (restriction lists, material lists, multi-tool presets): copies are named
+  name_2, name_3, ...
+- Fix: pressing AutoExplore's mode key on the title screen no longer throws an error.
+
 ## 1.2.0
 - Lawnmower path (multi-tool, on by default): explores and works the map in back-and-forth lanes as wide as your
   sight, chunk by chunk, then nearest-first for stragglers. Covers the playable area only.

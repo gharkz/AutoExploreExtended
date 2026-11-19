@@ -160,7 +160,7 @@ namespace AutoExploreExtended
             Action reopen = () => { w?.Layer.Close(); refresh(); Manage(tool, kind, t, white, axe, refresh); };
             var lists = white ? t.Whitelists : t.Blacklists;
             string active = white ? t.ActiveWhitelist : t.ActiveBlacklist;
-            var rows = new List<UiRow> { new UiRow { Label = L.T("List"), ColumnHeader = true, Cells = new[] { L.T("Materials"), "", "", "" } } };
+            var rows = new List<UiRow> { new UiRow { Label = L.T("List"), ColumnHeader = true, Cells = new[] { L.T("Materials"), "", "", "", "" } } };
             foreach (var name in lists.Keys.OrderBy(n => n).ToList())
             {
                 var n = name;
@@ -168,13 +168,14 @@ namespace AutoExploreExtended
                 {
                     Label = n, Checked = n == active,
                     Click = _ => { if (white) t.ActiveWhitelist = n; else t.ActiveBlacklist = n; Save(); reopen(); },
-                    Cells = new[] { lists[n].Count == 0 ? L.T("(empty)") : L.F("{0} materials", lists[n].Count), L.T("Edit"), L.T("Rename"), L.T("Delete") },
-                    GreyCells = new[] { false, false, false, lists.Count == 1 },
+                    Cells = new[] { lists[n].Count == 0 ? L.T("(empty)") : L.F("{0} materials", lists[n].Count), L.T("Edit"), L.T("Duplicate"), L.T("Rename"), L.T("Delete") },
+                    GreyCells = new[] { false, false, false, false, lists.Count == 1 },
                     CellClick = new Action<UiRow, int>[]
                     {
                         null,
                         (r, _) => TextArea.Open(L.T(tool) + " " + L.T(kind) + ": " + n, string.Join(",", lists[n]),
                             text => { lists[n] = TextArea.Entries(text); Save(); reopen(); }, Hint(white), Options(lists[n], axe)),
+                        (r, _) => { lists[CopyName.Next(n, lists.ContainsKey)] = new List<string>(lists[n]); Save(); reopen(); },
                         (r, _) => AskName(L.F("Rename {0}", n), n, lists, nn =>
                         {
                             lists[nn] = lists[n]; lists.Remove(n);
@@ -195,7 +196,7 @@ namespace AutoExploreExtended
                 : axe == "pick" ? (white ? "mithril_and_adamantite_only" : "no_granite_or_marble")
                 : (white ? "soil_only" : "no_grass_or_sand");
             string note = L.F("Click a list to make it active.\nYou can't delete the last list; keep at least one of each kind.\nName lists for what they do, e.g. {0}.", L.T(example));
-            w = UiTable.Open(L.F(white ? "{0} whitelists" : "{0} blacklists", L.T(tool)), rows, new[] { 0f, .36f, .62f, .74f, .88f, 1f }, 640,
+            w = UiTable.Open(L.F(white ? "{0} whitelists" : "{0} blacklists", L.T(tool)), rows, new[] { 0f, .32f, .52f, .62f, .75f, .87f, 1f }, 720,
                 UnityEngine.Mathf.Min(280 + rows.Count * 34, 680), footNote: note, corner: new List<(string, Action)>
                 {
                     (L.T("New List"), () => AskName(L.T("New list"), (white ? "whitelist_" : "blacklist_") + (lists.Count + 1), lists, nn =>

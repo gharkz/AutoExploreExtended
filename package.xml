@@ -39,6 +39,7 @@ Filters
 - Per-tool material filters, with a checklist editor and common things to skip.
 
 Also
+- At home (optional): also harvest wild things on tiles you've changed; walls and floors only from a per-base whitelist.
 - Fight in place (optional): never chase enemies; fight with what's in reach, then resume the route or the interrupted job.
 - Lawnmower path for AutoExplore's own modes too (experimental, off by default).
 - Using Instant Actions? Crowbar prying bypasses it so chests actually open (toggle in settings).
@@ -79,6 +80,7 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 - 除外リストを名前付きで複数保存。道具ごとの素材フィルター。
 
 その他
+- 拠点（任意）：手を加えたタイルの自然物も採取。壁と床は拠点ごとのホワイトリストのみ。
 - その場で戦う（任意）：敵を追わず、届く範囲で戦ってからルートや作業に戻ります。
 - Instant Actions使用時も、バールのこじ開けはそれを無視して箱が開きます（設定で切替）。
 - 私の[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]の機能を含みます。あちらが有効な間はこちらの毛刈りは止まります。
@@ -116,6 +118,7 @@ AutoExploreが使える道具を増やし、設定画面を追加します。新
 - 可命名保存多份排除列表；按工具的材质过滤。
 
 其他
+- 基地（可选）：也采集改动过格子上的天然物；墙壁和地板仅限每个基地的白名单。
 - 原地战斗（可选）：不追击敌人，用够得着的手段战斗，然后回到路线或工作。
 - 使用Instant Actions时，撬棍撬开会绕过它，箱子确实能打开（可在设置中切换）。
 - 包含我的[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]的功能；那个MOD启用时，本MOD的剪毛会停用。

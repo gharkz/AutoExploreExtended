@@ -118,6 +118,7 @@ namespace AutoExploreExtended
         {
             private static bool Prefix(AutoExplorerConfig __instance)
             {
+                if (!EClass.core.IsGameStarted || EClass.pc == null) return false; // mode key on the title screen
                 if (getMode == null || setMode == null) return true;
                 if (style.Value == CycleStyle.OwnKey)
                 {
@@ -161,6 +162,14 @@ namespace AutoExploreExtended
         }
 
         internal static void Add(string name) { data.Presets[name] = new Preset(); data.Order.Add(name); Save(); }
+
+        // A copy right below the original, named name_2, name_3, ...
+        internal static void Duplicate(string name)
+        {
+            var p = data.Presets[name]; string n = CopyName.Next(name, data.Presets.ContainsKey);
+            data.Presets[n] = new Preset { Tools = new List<string>(p.Tools), InCycle = p.InCycle, UseHeld = p.UseHeld, Pickaxe = p.Pickaxe };
+            data.Order.Insert(data.Order.IndexOf(name) + 1, n); Save();
+        }
 
         // ---- Tools ---------------------------------------------------------------------------------------------
 
@@ -229,7 +238,6 @@ namespace AutoExploreExtended
         internal static void Succeeded(Kind k, Point p) => failed.Remove(FKey(k, p));
         internal static void Log(string m) { if (Profiler.On) UnityEngine.Debug.Log("[AEX multi-tool] " + m); if (Trace.On) Trace.Event("note", null, m.Replace("\"", "'")); }
 
-        private static bool Home(Point p) => EClass._zone.IsPCFaction && p.cell.isModified;
         private static bool Ignored(IgnoreList.NameList list, string name) => !string.IsNullOrEmpty(name) && list.Contains(name);
 
         // The job for one tile, if any enabled tool has work there. The sickle gets first claim on growing things;
@@ -265,11 +273,10 @@ namespace AutoExploreExtended
             var ignore = Explorer.Instance.IgnoreList;
             Thing t;
 
-            if (!Home(p))
             {
                 // Objects and loose things: ask the game what each candidate tool would do there (its own hover and
                 // right-click rule), the sickle first, then tools whose skill matches the target before the others.
-                if (p.HasObj || p.HasThing)
+                if ((p.HasObj || p.HasThing) && OwnLand.ObjOk(p))
                 {
                     var req = p.HasObj ? p.sourceObj.reqHarvest : null;
                     int want = req != null && req.Length > 0 && EClass.sources.elements.alias.TryGetValue(req[0], out var er) ? er.id : 0;
@@ -291,7 +298,7 @@ namespace AutoExploreExtended
                     }
                 }
                 // Walls: any candidate the game lets mine them (pickaxe; an axe on wood and grass walls).
-                if (p.HasBlock && PickMine && !Ignored(ignore.Mining, p.cell.GetBlockName()))
+                if (p.HasBlock && PickMine && OwnLand.WallOk(p) && !Ignored(ignore.Mining, p.cell.GetBlockName()))
                     foreach (var (tool, kind) in Candidates().OrderBy(c => c.tool.HasElement(Mining) ? 0 : 1))
                     {
                         if (Failed(kind, p) || !TaskMine.CanMine(p, tool)) continue;

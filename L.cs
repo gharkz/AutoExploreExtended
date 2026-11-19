@@ -170,6 +170,7 @@ namespace AutoExploreExtended
             ["{0} entries"] = ("{0}件", "{0}项"),
             ["Edit"] = ("編集", "编辑"),
             ["Rename"] = ("名前変更", "重命名"),
+            ["Duplicate"] = ("複製", "复制"),
             ["Delete"] = ("削除", "删除"),
             ["New List"] = ("新しいリスト", "新建列表"),
             ["New list"] = ("新しいリスト", "新建列表"),
@@ -220,6 +221,19 @@ namespace AutoExploreExtended
             ["Never chase enemies: fight with what's in reach (abilities, ranged, throwing, melee when adjacent), then carry on with the route or the job that was interrupted."] =
                 ("敵を追いかけず、届く範囲で戦います（能力、射撃、投擲、隣接時は近接）。その後、ルートや中断された作業を続けます。",
                  "不追击敌人：用够得着的手段战斗（技能、远程、投掷、相邻时近战），然后继续路线或被打断的工作。"),
+            ["Own land: natural things too"] = ("自分の土地：自然のものも対象", "自己的领地：也包括天然的东西"),
+            ["On your own land, harvest everything natural, even on tiles you've changed: wild plants, stones, trees and rocks. Crops on your farm fields stay protected. Walls and floors at home are only mined or dug when their name is on the home whitelist."] =
+                ("自分の土地で、手を加えたタイルの上でも自然のものをすべて採取します：野生の植物、石、木、岩。畑の作物は保護されます。拠点の壁と床は、拠点ホワイトリストにある名前だけ採掘・掘削します。",
+                 "在自己的领地上，即使在改动过的格子上，也采集一切天然的东西：野生植物、石头、树木和岩石。农田里的作物受保护。基地的墙壁和地板只有名字在基地白名单上时才会开采或挖掘。"),
+            ["Suggested (common on this map)"] = ("おすすめ（このマップに多いもの）", "推荐（本地图常见）"),
+            ["Use the home whitelist"] = ("拠点ホワイトリストを使う", "使用基地白名单"),
+            ["Use the home whitelist: walls and floors named on it may be mined or dug at home. Off: no walls or floors at home are touched."] =
+                ("拠点ホワイトリストを使う：載っている壁と床を拠点で採掘・掘削できます。オフなら拠点の壁と床には触れません。",
+                 "使用基地白名单：名单上的墙壁和地板可以在基地开采或挖掘。关闭时不碰基地的墙壁和地板。"),
+            ["Home walls & floors (whitelist)"] = ("拠点の壁と床（ホワイトリスト）", "基地墙壁和地板（白名单）"),
+            ["Walls and floors that may be mined or dug at home (used when \"Own land\" is on). Names separated by commas, e.g. soil block, grass. Each base remembers which list it uses."] =
+                ("拠点で採掘・掘削してよい壁と床（「自分の土地」がオンのとき）。名前をカンマ区切りで、例：soil block, grass。拠点ごとに使うリストを覚えます。",
+                 "可以在基地开采或挖掘的墙壁和地板（“自己的领地”开启时）。名称用逗号分隔，例如 soil block, grass。每个基地会记住它使用的列表。"),
             ["Active preset"] = ("使用中のプリセット", "当前预设"),
             ["Presets"] = ("プリセット", "预设"),
             ["1 preset"] = ("1個のプリセット", "1个预设"),

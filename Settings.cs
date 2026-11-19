@@ -138,6 +138,9 @@ namespace AutoExploreExtended
                 return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (when shears tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "SkipPlatforms") return "Don't dig platforms (or the floor under them)";
             if (e.ConfigFile == own && e.Definition.Key == "TracksWhileMining") return "Dig tracks while mining (swaps to your best shovel)";
+            if (e.ConfigFile == own && e.Definition.Key == "OwnLandNoProtection") return "Own land: natural things too";
+            if (e.ConfigFile == own && e.Definition.Key == "HomeWhitelistOn") return "Use the home whitelist";
+            if (e.ConfigFile == own && e.Definition.Key == "HomeWallsAndFloors") return "Home walls & floors (whitelist)";
             if (e.ConfigFile == own && e.Definition.Key == "FightInPlace") return "Fight in place (never chase enemies)";
             if (e.ConfigFile == own && e.Definition.Key == "Sweep") return "Lawnmower path (back-and-forth lanes across the map)";
             if (e.ConfigFile == own && e.Definition.Key == "SweepBaseModes") return "Lawnmower path in AutoExplore's own modes (experimental)";

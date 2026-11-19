@@ -23,6 +23,7 @@ namespace AutoExploreExtended
             if (e == cfg.GatheringRestrictionList) known = Gathering;
             else if (e == cfg.MiningRestrictionList) known = Mining;
             else if (e == cfg.PickupRestrictionList) known = Pickup;
+            else if (e == OwnLand.List) known = Ground;
             else return null;
 
             var atOpen = TextArea.Entries((string)e.BoxedValue);
@@ -45,7 +46,7 @@ namespace AutoExploreExtended
                 Choices = () => new List<(string, List<string>)>
                 {
                     (L.T("In the list"), TextArea.Entries((string)e.BoxedValue)),
-                    (L.T("Common to skip"), Useful(e, cfg, choices())),
+                    (L.T(e == OwnLand.List ? "Suggested (common on this map)" : "Common to skip"), Useful(e, cfg, choices())),
                     (L.T("Everything else"), choices()),
                 },
             };
@@ -60,6 +61,7 @@ namespace AutoExploreExtended
         private static List<string> Useful(ConfigEntryBase e, AutoExplorerConfig cfg, List<string> known)
         {
             if (e == cfg.PickupRestrictionList) return PickupUseful.ToList();
+            if (e == OwnLand.List) return known.GroupBy(n => n).OrderByDescending(g => g.Count()).Take(12).Select(g => g.Key).ToList();
             if (e == cfg.MiningRestrictionList)
             {
                 var objs = new HashSet<string>(MiningObjs().Select(IgnoreNames.Key));
@@ -71,6 +73,15 @@ namespace AutoExploreExtended
         }
 
         private static List<string> Safe(Func<List<string>> f) { try { return f(); } catch (Exception x) { UnityEngine.Debug.LogException(x); return new List<string>(); } }
+
+        // This map's walls and floors (home whitelist), as the home rules read them.
+        private static List<string> Ground()
+        {
+            var names = new List<string>();
+            if (EClass._map != null)
+                MapScan.Playable(c => { if (c.HasBlock) names.Add(c.GetBlockName()); else if (c._floor != 0 && !c.sourceFloor.tileType.IsWater) names.Add(c.GetFloorName()); }); // water is never dug
+            return names;
+        }
 
         // Plants, trees, rocks and other map objects (AutoExplore matches their row names), on this map first.
         private static List<string> Gathering()

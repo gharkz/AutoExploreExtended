@@ -24,7 +24,15 @@ namespace AutoExploreExtended
             data = data ?? new Dictionary<string, Set>();
         }
 
-        internal static bool Handles(ConfigEntryBase e) => e.BoxedValue is string && e.Definition.Section == "Restrictions";
+        internal static bool Handles(ConfigEntryBase e) => e.BoxedValue is string && (e.Definition.Section == "Restrictions" || e == OwnLand.List);
+
+        // Make a list active by name (a base switching to its own home list); unknown names are ignored.
+        internal static void SetActive(ConfigEntryBase e, string name)
+        {
+            var s = For(e);
+            if (name == null || name == s.Active || !s.Lists.ContainsKey(name)) return;
+            s.Active = name; Apply(e, s);
+        }
 
         // The set for this setting. AutoExplore's config is the truth for the active list (it may be edited by hand).
         private static Set For(ConfigEntryBase e)
@@ -51,7 +59,7 @@ namespace AutoExploreExtended
             var s = For(e);
             UiTable.Window w = null;
             Action reopen = () => { w?.Layer.Close(); refresh(); Manage(e, title, hint, refresh); };
-            var rows = new List<UiRow> { new UiRow { Label = L.T("List"), ColumnHeader = true, Cells = new[] { L.T("Entries"), "", "", "" } } };
+            var rows = new List<UiRow> { new UiRow { Label = L.T("List"), ColumnHeader = true, Cells = new[] { L.T("Entries"), "", "", "", "" } } };
             foreach (var name in s.Lists.Keys.OrderBy(n => n).ToList())
             {
                 var n = name;
@@ -60,8 +68,8 @@ namespace AutoExploreExtended
                 {
                     Label = n, Checked = n == s.Active,
                     Click = _ => { s.Active = n; Apply(e, s); reopen(); },
-                    Cells = new[] { count == 0 ? L.T("(empty)") : L.F("{0} entries", count), L.T("Edit"), L.T("Rename"), L.T("Delete") },
-                    GreyCells = new[] { false, false, false, s.Lists.Count == 1 },
+                    Cells = new[] { count == 0 ? L.T("(empty)") : L.F("{0} entries", count), L.T("Edit"), L.T("Duplicate"), L.T("Rename"), L.T("Delete") },
+                    GreyCells = new[] { false, false, false, false, s.Lists.Count == 1 },
                     CellClick = new Action<UiRow, int>[]
                     {
                         null,
@@ -71,6 +79,7 @@ namespace AutoExploreExtended
                             if (n == s.Active) Apply(e, s); else Save();
                             reopen();
                         }, hint, Restrictions.For(e)),
+                        (r, _) => { s.Lists[CopyName.Next(n, s.Lists.ContainsKey)] = s.Lists[n]; Save(); reopen(); },
                         (r, _) => AskName(L.F("Rename {0}", n), n, s, nn =>
                         {
                             s.Lists[nn] = s.Lists[n]; s.Lists.Remove(n);
@@ -91,7 +100,7 @@ namespace AutoExploreExtended
                 });
             }
             string note = L.T("Click a list to make it active. AutoExplore uses the active one.\nYou can't delete the last list; keep at least one.\nName lists for what they do, e.g. no_moss_or_pebbles.");
-            w = UiTable.Open(L.F("{0} lists", title.EndsWith(" list") ? title.Substring(0, title.Length - 5) : title), rows, new[] { 0f, .36f, .62f, .74f, .88f, 1f }, 640,
+            w = UiTable.Open(L.F("{0} lists", title.EndsWith(" list") ? title.Substring(0, title.Length - 5) : title), rows, new[] { 0f, .32f, .52f, .62f, .75f, .87f, 1f }, 720,
                 UnityEngine.Mathf.Min(280 + rows.Count * 34, 680), footNote: note, corner: new List<(string, Action)>
                 {
                     (L.T("New List"), () => AskName(L.T("New list"), "list_" + (s.Lists.Count + 1), s, nn =>

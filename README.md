@@ -1,6 +1,6 @@
 # AutoExplore Extended
 
-An Elin mod that teaches [Yuof's AutoExplore](https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584) to use more tools, and adds a settings window for all of it. Requires AutoExplore.
+An Elin mod that extends [Yuof's AutoExplore](https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584) to use more tools, and adds a settings window for all of it. Requires AutoExplore.
 
 ## Tools
 - **Crowbar or lockpick:** opens locked chests you may legally open.

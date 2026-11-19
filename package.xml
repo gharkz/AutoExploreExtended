@@ -15,115 +15,92 @@ Extends AutoExplore to use more tools, and adds a settings window for all of it.
 New in 1.1: Multi-tool mode. Chop, reap, mine, dig, shear and unlock in a single pass, with AutoExplore swapping to your best tool for every job. No more running the same map once per tool.
 
 Tools
-- Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like), for lockpicking experience.
-- Practice chests: holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
+- Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like).
+- Practice chests: with a crowbar or lockpick, works every practice chest on the map. No pry damage, no lockpick charges used.
 - Shears: shears every shearable animal.
-- Shovel: digs up floors and tracks, in Gather or Mining mode. Platforms and bridges are skipped by default: digging a raised platform out from under you can leave you stuck. You can turn that off in the settings.
-- Optional: dig tracks while mining. Swaps to your best shovel and back.
+- Shovel: digs floors and tracks. Platforms are skipped by default, since digging one out from under you can leave you stuck.
+- Optional: dig tracks while mining, swapping to your best shovel and back.
 
 Multi-tool mode
-- One pass over the map for several tools: AutoExplore swaps to your best carried tool for each job (sickle, axe, pickaxe, shovel, shears, lockpick, crowbar).
-- Named presets pick the tools. The sickle gets first claim on anything it can reap, for seeds. Lockpicks go first on chests, with the crowbar as fallback.
-- Presets join AutoExplore's mode key after Combined, or cycle with a key of their own. Reorder them with the arrows.
+- Named presets pick the tools: sickle, axe, pickaxe, shovel, shears, lockpick, crowbar. The sickle goes first on anything it can reap; lockpicks go before the crowbar.
+- Cycle presets on AutoExplore's mode key, or a key of their own. Reorder them with the arrows.
 
 Settings window
 - System > Mod > AutoExplore Extended, or middle-click yourself.
-- Every AutoExplore setting in one place, saved to AutoExplore's own config. Changes apply immediately, no game restart needed.
-- Hover a setting to see what it does. Sliders with a one-click reset to defaults.
+- Every AutoExplore setting in one place, with hover help. Changes apply immediately, no restart needed.
 
 Filters
-- Named restriction lists for gathering, mining and pickup. Keep several and switch between them.
-- Material filters per tool (pickaxe, axe, shovel): skip some materials, or take only the ones you list.
-- A checklist editor beside the raw list, with common things to skip suggested.
+- Named restriction lists for gathering, mining and pickup; switch between them any time.
+- Per-tool material filters, with a checklist editor and common things to skip.
 
 Also
-- Using the Instant Actions mod? Crowbar prying bypasses it, so chests actually open. On by default; lockpicks have the same option. Toggle either in the settings.
-- Already using my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]? This mod includes it and turns its own shearing off while that one is enabled.
+- Using Instant Actions? Crowbar prying bypasses it so chests actually open (toggle in settings).
+- Includes my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]; its shearing steps aside while that mod is enabled.
 
-English, Japanese and Simplified Chinese. Japanese and Simplified Chinese translations: Claude (AI).
-
-Disclosure: I used Codex and Claude (AI) as coding and translation assistants while building this mod. The Workshop preview image was drawn in code with Claude's help. The design, testing and final decisions are my own.
-
+Japanese and Simplified Chinese translations: Claude (AI).
+Disclosure: I used Codex and Claude (AI) as coding and translation assistants. The preview image was drawn in code with Claude's help. The design, testing and final decisions are my own.
 Source: https://github.com/gharkz/AutoExploreExtended
 [/quote]
 
 [quote]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]YuofさんのAutoExplore[/url]が必要です。
 
-AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。新たに対応した道具のどれかを選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
+AutoExploreが使える道具を増やし、設定画面を追加します。新たに対応した道具を選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
 
-1.1の新機能：マルチツールモード。伐採、刈り取り、採掘、掘削、毛刈り、解錠を一巡でこなし、作業ごとにAutoExploreが最良の道具に持ち替えます。道具ごとに同じマップを何周もする必要はもうありません。
+1.1の新機能：マルチツールモード。伐採、刈り取り、採掘、掘削、毛刈り、解錠を一巡でこなし、作業ごとに最良の道具に持ち替えます。
 
 道具
-- バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開け、解錠の経験を得ます。
-- 練習用の箱：バールかロックピックを持っていれば、マップ上の練習用の箱をすべて解錠して練習します。こじ開けで壊さず、ロックピックの回数も消費しません。
+- バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開けます。
+- 練習用の箱：マップ上の練習用の箱をすべて解錠。壊さず、回数も消費しません。
 - ハサミ：毛を刈れる動物をすべて刈ります。
-- シャベル：採取モードか採掘モードで、床と線路を掘ります。足場と橋は初期設定で掘りません。高い足場を足元から掘ると動けなくなることがあるためです。設定でオフにできます。
-- オプション：採掘中に線路も掘ります。最良のシャベルに持ち替え、終われば戻します。
+- シャベル：床と線路を掘ります。足場は初期設定で掘りません（動けなくなるため）。
+- オプション：採掘中に線路も掘ります（最良のシャベルに持ち替えて戻します）。
 
-マルチツールモード
-- 複数の道具の作業をマップ一巡で：作業ごとに持っている最良の道具へ持ち替えます（鎌、斧、つるはし、シャベル、ハサミ、ロックピック、バール）。
-- 名前付きプリセットで使う道具を選びます。鎌で刈れるもの（種）は鎌が最優先。宝箱はロックピックを先に使い、なくなればバールで開けます。
-- プリセットはAutoExploreのモードキーで「複合」の後に入るか、専用キーで切り替えます。矢印で順番を並べ替えられます。
+マルチツール
+- プリセットで道具を選択。鎌で刈れるものは鎌が優先、ロックピックはバールより先。
+- AutoExploreのモードキーか専用キーで切り替え、矢印で並べ替え。
 
 設定画面
-- システム＞MOD＞AutoExplore Extended、または自分を中クリック。
-- AutoExploreの全設定を一か所で。AutoExplore自身の設定ファイルに保存され、変更はすぐ反映され、ゲームの再起動は不要です。
-- 設定にマウスを合わせると説明を表示。スライダーはワンクリックで初期値に戻せます。
+- システム＞MOD、または自分を中クリック。全設定を一か所で、変更はすぐ反映。
 
 フィルター
-- 採取・採掘・拾得の除外リストに名前を付けて複数保存し、切り替えられます。
-- 道具ごと（つるはし・斧・シャベル）の素材フィルター：指定した素材を除外、または指定した素材だけを対象に。
-- 元のリストの横にチェックリスト編集画面。よく除外するものを提案します。
+- 除外リストを名前付きで複数保存。道具ごとの素材フィルター。
 
 その他
-- Instant Actions MODを使っている場合：バールでのこじ開けはそれを無視するので、箱がちゃんと開きます。初期設定でオン。ロックピックにも同じ設定があり、どちらも設定で切り替えられます。
-- 私の「[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]」を使っている場合：このMODにはその機能が含まれ、あちらが有効な間はこちらの毛刈りをオフにします。
+- Instant Actions使用時も、バールのこじ開けはそれを無視して箱が開きます（設定で切替）。
+- 私の[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]の機能を含みます。あちらが有効な間はこちらの毛刈りは止まります。
 
-英語・日本語・簡体字中国語。日本語・簡体字中国語訳：Claude（AI）。
-
-開示: このModの制作では、コーディングと翻訳の補助にCodexとClaude(AI)を使用しました。ワークショップのプレビュー画像はClaudeの補助でコードにより描きました。設計・テスト・最終判断は私自身が行いました。
-
-ソースコード：https://github.com/gharkz/AutoExploreExtended
+日本語訳：Claude（AI）。開示：コーディングと翻訳にCodexとClaude(AI)を使用。設計・テスト・最終判断は私自身です。
 [/quote]
 
 [quote]
 需要[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]Yuof的AutoExplore[/url]。
 
-让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中任一新支持的工具，照常启动AutoExplore，它就会处理整张地图。
+让AutoExplore能使用更多工具，并添加设置窗口。选中新支持的工具，照常启动AutoExplore，它就会处理整张地图。
 
-1.1新功能：多工具模式。伐木、收割、采矿、挖掘、剪毛、开锁一遍完成，每项工作AutoExplore都会换用最好的工具。不必再为每种工具把同一张地图跑一遍。
+1.1新功能：多工具模式。伐木、收割、采矿、挖掘、剪毛、开锁一遍完成，每项工作都换用最好的工具。
 
 工具
-- 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等），获得开锁经验。
-- 练习箱：手持撬棍或开锁器时，会处理地图上所有练习箱来练习开锁。不会撬坏箱子，也不消耗开锁器次数。
+- 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等）。
+- 练习箱：处理地图上所有练习箱。不撬坏，不消耗次数。
 - 剪刀：给所有可剪毛的动物剪毛。
-- 铲子：在采集或采矿模式下挖起地板和轨道。默认不挖平台和桥：把脚下的高架平台挖掉可能会让你被困住。可在设置中关闭。
-- 可选：采矿时也挖轨道。自动换上最好的铲子，再换回来。
+- 铲子：挖地板和轨道。默认不挖平台（以免被困）。
+- 可选：采矿时也挖轨道（换用最好的铲子，用完换回）。
 
-多工具模式
-- 走一遍地图完成多种工具的工作：每项工作都换用你携带的最好的工具（镰刀、斧、镐、铲子、剪刀、开锁器、撬棍）。
-- 用命名预设选择工具。能用镰刀收割的东西（种子）优先用镰刀。箱子先用开锁器，用完再用撬棍。
-- 预设可以排在AutoExplore模式键的“综合”之后，也可以用专用键切换。用箭头调整顺序。
+多工具
+- 用预设选择工具。能用镰刀收割的优先用镰刀；开锁器先于撬棍。
+- 用AutoExplore的模式键或专用键切换，箭头调整顺序。
 
 设置窗口
-- 系统>MOD>AutoExplore Extended，或中键点击自己。
-- AutoExplore的全部设置集中在一处，保存到AutoExplore自己的配置文件，更改立即生效，无需重启游戏。
-- 鼠标指向设置即可查看说明。滑块可一键恢复默认值。
+- 系统>MOD，或中键点击自己。全部设置集中在一处，立即生效。
 
 过滤
-- 采集、采矿、拾取排除列表可以命名并保存多份，随时切换。
-- 按工具（镐、斧、铲子）的材质过滤：跳过指定材质，或只处理指定材质。
-- 原始列表旁有勾选列表编辑器，并提供常见排除项建议。
+- 可命名保存多份排除列表；按工具的材质过滤。
 
 其他
-- 使用Instant Actions MOD？撬棍撬开会绕过它，确保箱子真正打开。默认开启；开锁器也有同样的选项，均可在设置中切换。
-- 已在使用我的「[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]」？本MOD已包含该功能，在那个MOD启用时会关闭自己的剪毛。
+- 使用Instant Actions时，撬棍撬开会绕过它，箱子确实能打开（可在设置中切换）。
+- 包含我的[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]的功能；那个MOD启用时，本MOD的剪毛会停用。
 
-英语、日语、简体中文。日语和简体中文翻译：Claude（AI）。
-
-说明: 制作本模组时，我使用了Codex与Claude(AI)作为编程与翻译助手。创意工坊预览图是在Claude的协助下用代码绘制的。设计、测试与最终决定均由我本人完成。
-
-源代码：https://github.com/gharkz/AutoExploreExtended
+中文翻译：Claude（AI）。说明：编程与翻译使用了Codex与Claude(AI)。设计、测试与最终决定由我本人完成。
 [/quote]</description>
 </Meta>

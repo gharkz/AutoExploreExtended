@@ -5,7 +5,7 @@ using System.Linq;
 using BepInEx.Configuration;
 using Newtonsoft.Json;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Named lists for AutoExplore's own restriction strings (gathering, mining, pickup), like the material filters:
     // author several, keep one active. The active list's text is what AutoExplore's config holds, so AutoExplore
@@ -19,7 +19,7 @@ namespace AutoExploreLockpicking
 
         internal static void Bind(ConfigFile c)
         {
-            file = Path.Combine(Path.GetDirectoryName(c.ConfigFilePath), "gharkz.autoexplorelockpicking.restrictions.json");
+            file = Path.Combine(Path.GetDirectoryName(c.ConfigFilePath), "gharkz.autoexploreextended.restrictions.json");
             try { data = File.Exists(file) ? JsonConvert.DeserializeObject<Dictionary<string, Set>>(File.ReadAllText(file)) : null; } catch { data = null; }
             data = data ?? new Dictionary<string, Set>();
         }

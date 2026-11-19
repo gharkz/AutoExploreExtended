@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using Elin_AutoExplore;
 using Explorer = Elin_AutoExplore.Plugin;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Shearing (moved from the Auto-Explore Shearing Extension; same rules).
     internal static class Shearing

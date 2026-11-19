@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Meta>
   <title>AutoExplore Extended</title>
-  <id>gharkz.autoexplorelockpicking</id>
+  <id>gharkz.autoexploreextended</id>
   <author>gharkz</author>
   <version>0.23.355</version>
   <loadPriority>120</loadPriority>

@@ -6,7 +6,7 @@ using BepInEx.Configuration;
 using Elin_AutoExplore;
 using Explorer = Elin_AutoExplore.Plugin;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // AutoExplore's three restriction lists: checklist choices, syntax check, and a live reload (AutoExplore parses
     // the lists only at startup, so after a save its IgnoreList is rebuilt from the config entries).

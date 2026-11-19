@@ -4,7 +4,7 @@ using BepInEx.Configuration;
 using Elin_AutoExplore;
 using HarmonyLib;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Shovel mode: with a shovel selected and AutoExplore in Gather/Combined mode, AutoExplore digs up floor tiles
     // across the map (the game's own shovel action, which removes the floor and drops its material), and digs up

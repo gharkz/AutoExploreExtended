@@ -9,18 +9,19 @@ using HarmonyLib;
 using Elin_AutoExplore;
 using Explorer = Elin_AutoExplore.Plugin;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Auto-Explore Tool Extension: AutoExplore (Gather/Combined mode) works with the selected tool across the current map.
     //  - Shears: shears every shearable NPC (the former Auto-Explore Shearing Extension, unchanged behaviour).
     //  - Crowbar / lockpick: opens every legal locked container (prying or picking), mainly for lockpicking experience;
     //    practice chests are always picked by hand (prying would destroy them). Karma/crime targets are excluded by default.
     // With one of these tools selected, AutoExplore's other gathering is set aside.
-    [BepInPlugin(Id, DisplayName, "1.0.0")]
+    [BepInPlugin(Id, DisplayName, "1.0.1")]
     [BepInDependency("yuof.elin.autoExplore.mod", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
-        public const string Id = "gharkz.autoexplorelockpicking";
+        public const string Id = "gharkz.autoexploreextended";
+        internal const string OldId = "gharkz.autoexplorelockpicking"; // the development name; settings are carried over once
         public const string DisplayName = "AutoExplore Extended";
         private static ConfigEntry<bool> on, allowKarma;
         internal static ConfigEntry<bool> shearOn, practiceOn;
@@ -32,8 +33,21 @@ namespace AutoExploreLockpicking
 
         private void Start()
         {
-            try { Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.0.0 active."); }
+            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.0.1 active."); }
             catch (Exception e) { Logger.LogError(DisplayName + " disabled: " + e); }
+        }
+
+        // 1.0.0 shipped under the development ID; copy its settings files to the new names once (old files are kept).
+        private void Migrate()
+        {
+            string dir = System.IO.Path.GetDirectoryName(Config.ConfigFilePath);
+            bool copied = false;
+            foreach (var (from, to) in new[] { (OldId + ".cfg", Id + ".cfg"), (OldId + ".materials.json", Id + ".materials.json"), (OldId + ".restrictions.json", Id + ".restrictions.json") })
+            {
+                string a = System.IO.Path.Combine(dir, from), b = System.IO.Path.Combine(dir, to);
+                if (System.IO.File.Exists(a) && !System.IO.File.Exists(b)) { System.IO.File.Copy(a, b); copied = true; }
+            }
+            if (copied) { Config.Reload(); Logger.LogInfo("Carried settings over from " + OldId + "."); }
         }
 
         private void OnDestroy() => Uninstall();
@@ -42,7 +56,7 @@ namespace AutoExploreLockpicking
         {
             if (Installed) return;
             if (Explorer.Instance == null)
-                throw new InvalidOperationException("Enable AutoExplore 1.6 or newer before using Auto Explore Lockpicking.");
+                throw new InvalidOperationException("Enable AutoExplore 1.6 or newer before using AutoExplore Extended.");
             foreach (var method in PatchTargets())
                 if (method == null) throw new MissingMethodException("Unsupported AutoExplore targeting API");
             on = configuration.Bind("Locked chests", "Enabled", true,

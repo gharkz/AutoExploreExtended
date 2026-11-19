@@ -6,7 +6,7 @@ using Elin_AutoExplore;
 using HarmonyLib;
 using Explorer = Elin_AutoExplore.Plugin;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Option (off by default): while AutoExplore mines with a pickaxe in hand and you carry a shovel, it also digs up
     // tracks (wood for the taking) with your hardest shovel, then puts the pickaxe back, so you don't swap by hand.

@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Optional add-ons for a TextArea: validation and a checklist editor for comma-separated lists.
     internal sealed class TextAreaOptions

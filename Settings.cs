@@ -5,7 +5,7 @@ using BepInEx.Configuration;
 using UnityEngine;
 using Explorer = Elin_AutoExplore.Plugin;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // System > Mod > AutoExplore Extended: a parchment settings window (Layout/Logistics style) with one tab per
     // AutoExplore config section plus a Tools tab for this mod. Each value is set on its owner's ConfigEntry, so

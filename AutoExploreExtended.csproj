@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <Version>1.0.0</Version>
-    <Title>Auto-Explore Lockpicking Extension</Title>
+    <Version>1.0.1</Version>
+    <Title>AutoExplore Extended</Title>
     <ElinDir Condition="'$(ElinDir)' == ''">X:\SteamLibrary\steamapps\common\Elin</ElinDir>
     <AutoExploreDll Condition="'$(AutoExploreDll)' == ''">X:\SteamLibrary\steamapps\workshop\content\2135150\3365829584\Elin_AutoExplore.dll</AutoExploreDll>
     <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages>

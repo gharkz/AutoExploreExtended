@@ -7,7 +7,7 @@ using Elin_AutoExplore;
 using HarmonyLib;
 using Newtonsoft.Json;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     internal enum MaterialFilter { Off, Blacklist, Whitelist }
 
@@ -39,7 +39,7 @@ namespace AutoExploreLockpicking
             pickMode = c.Bind("Materials", "PickaxeFilter", MaterialFilter.Off, "Pickaxe work (walls, veins, rocks): Off, Blacklist (skip the active blacklist) or Whitelist (only the active whitelist).");
             axeMode = c.Bind("Materials", "AxeFilter", MaterialFilter.Off, "Axe work (trees, wood): Off, Blacklist or Whitelist.");
             digMode = c.Bind("Materials", "ShovelFilter", MaterialFilter.Off, "Shovel work (floors, tracks): Off, Blacklist or Whitelist.");
-            file = Path.Combine(Path.GetDirectoryName(c.ConfigFilePath), "gharkz.autoexplorelockpicking.materials.json");
+            file = Path.Combine(Path.GetDirectoryName(c.ConfigFilePath), "gharkz.autoexploreextended.materials.json");
             try { data = File.Exists(file) ? JsonConvert.DeserializeObject<Data>(File.ReadAllText(file)) : null; } catch { data = null; }
             data = data ?? new Data();
             if (data.Shovel == null) data.Shovel = new ToolLists();

@@ -2,7 +2,7 @@ using System;
 using BepInEx.Configuration;
 using HarmonyLib;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // "AutoExplore Extended" in the menu you get on your own tile (next to AutoExplore's own "AutoExplore Settings"):
     // a second way into the settings window, alongside System > Mod.

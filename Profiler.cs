@@ -7,7 +7,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using UnityEngine;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Dev aid (Debug/Profile, off by default): times AutoExplore's hot methods and our own hooks while
     // AutoExplore runs, and writes a summary every 5 seconds to BepInEx's log and to autoexplore-profile.txt

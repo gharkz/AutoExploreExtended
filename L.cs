@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // UI text in the game's language: English is the key; Japanese and Chinese where we have them (English otherwise).
     // Format strings use {0}, {1}... and go through F().

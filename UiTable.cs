@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Parchment table windows in the Logistics/Psion style: ink column dividers, inked value buttons, no key badges,
     // optional checkbox, section headings, column headers, notes, footer buttons. Rows update in place.
@@ -443,7 +443,7 @@ namespace AutoExploreLockpicking
     }
 }
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     internal static class Ui
     {

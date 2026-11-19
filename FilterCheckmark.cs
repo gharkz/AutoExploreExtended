@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AutoExploreLockpicking
+namespace AutoExploreExtended
 {
     // Small UI geometry keeps the check crisp without depending on a font glyph or game sprite.
     internal sealed class FilterCheckmark : MaskableGraphic

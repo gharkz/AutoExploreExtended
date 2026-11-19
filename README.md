@@ -10,7 +10,7 @@ An Elin mod that extends [Yuof's AutoExplore](https://steamcommunity.com/sharedf
 - **Optional:** dig tracks while mining, swapping to your best shovel and back.
 
 ## Settings window
-System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore setting in one place, saved to AutoExplore's own config; changes apply immediately. Hover a setting to see what it does.
+System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore setting in one place, saved to AutoExplore's own config; changes apply immediately, no game restart needed. Hover a setting to see what it does.
 
 ## Filters
 - Named restriction lists for gathering, mining and pickup.

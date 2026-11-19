@@ -121,6 +121,8 @@ namespace AutoExploreExtended
             ["Changes take effect immediately. No need to restart the game."] = ("変更はすぐに反映されます。ゲームの再起動は不要です。", "更改立即生效，无需重启游戏。"),
             ["Reset sliders to defaults ({0})"] = ("スライダーを初期値に戻す（{0}）", "将滑块恢复默认值（{0}）"),
             ["(none)"] = ("（なし）", "（无）"),
+            ["Press a key to assign [{0}].\n(Press ESC to cancel, press Del to remove)"] =
+                ("[{0}]に割り当てるキーを押してください。\n（ESCでキャンセル、Delで解除）", "请按下要分配给[{0}]的键。\n（ESC取消，Del移除）"),
             ["press a key…"] = ("キーを押してください…", "请按一个键…"),
 
             // Materials

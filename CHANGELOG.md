@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+Key settings now ask you to press a key, like the game's own key binding (Esc cancels, Del clears),
+instead of opening a list of every key.
+
 ## 1.0.2
 Settings say "locked containers" instead of "locked chests" (clam shells and the like count too);
 practice chests keep their name. Tool labels read "when shovel/shears tool selected". No behaviour change.

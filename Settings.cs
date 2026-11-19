@@ -17,6 +17,7 @@ namespace AutoExploreExtended
         private static int tab;
         private static ConfigEntryBase capturing;   // key binding waiting for a key press
         private static UiRow capturingRow;
+        private static Dialog prompt;                // the "press a key" prompt while capturing
         private static readonly float[] Edges = { 0f, .56f, .66f, .90f, 1f }; // name | − | value | +
         private const string Title = "AutoExplore Extended";
 
@@ -171,6 +172,14 @@ namespace AutoExploreExtended
                 };
             }
 
+            // Keys before enums (KeyCode is an enum): a prompt like the game's own key binding, not a list of every key.
+            if (v is KeyCode || v is KeyboardShortcut)
+                return Value(e, v.ToString(), r =>
+                {
+                    capturing = e; capturingRow = r;
+                    prompt = Dialog.Ok(L.F("Press a key to assign [{0}].\n(Press ESC to cancel, press Del to remove)", Name(e)));
+                });
+
             if (v is Enum)
                 return Value(e, v.ToString(), r =>
                 {
@@ -178,9 +187,6 @@ namespace AutoExploreExtended
                     UiTable.Choose(Name(e), values.Select(x => (x.ToString(), (Action)(() => { e.BoxedValue = x; UiTable.SetCell(r, 1, x.ToString()); }))).ToList(),
                         values.IndexOf(e.BoxedValue));
                 });
-
-            if (v is KeyCode || v is KeyboardShortcut)
-                return Value(e, v.ToString(), r => { capturing = e; capturingRow = r; UiTable.SetCell(r, 1, L.T("press a key…")); });
 
             if (NamedRestrictions.Handles(e))
                 return Value(e, NamedRestrictions.ActiveName(e), r => NamedRestrictions.Manage(e, Name(e), L.T(e.Description?.Description), () => Show(tab)));
@@ -197,16 +203,29 @@ namespace AutoExploreExtended
 
         private void Update()
         {
-            if (capturing == null || !Input.anyKeyDown) return;
-            if (Input.GetKeyDown(KeyCode.Escape)) { UiTable.SetCell(capturingRow, 1, capturing.BoxedValue.ToString()); capturing = null; return; }
+            if (capturing == null) return;
+            if (!Input.anyKeyDown) { if (!prompt) capturing = null; return; } // prompt closed with its own button
+            if (Input.GetKeyDown(KeyCode.Escape)) { Done(); return; }
+            if (Input.GetKeyDown(KeyCode.Delete)) { Set(KeyCode.None); return; }
             foreach (KeyCode k in Enum.GetValues(typeof(KeyCode)))
             {
                 if (k == KeyCode.None || (k >= KeyCode.Mouse0 && k <= KeyCode.Mouse6) || !Input.GetKeyDown(k)) continue;
-                capturing.BoxedValue = capturing.BoxedValue is KeyCode ? (object)k : new KeyboardShortcut(k);
-                UiTable.SetCell(capturingRow, 1, capturing.BoxedValue.ToString());
-                capturing = null;
-                return;
+                Set(k); return;
             }
+        }
+
+        private static void Set(KeyCode k)
+        {
+            capturing.BoxedValue = capturing.BoxedValue is KeyCode ? (object)k : (k == KeyCode.None ? KeyboardShortcut.Empty : new KeyboardShortcut(k));
+            UiTable.SetCell(capturingRow, 1, capturing.BoxedValue.ToString());
+            Done();
+        }
+
+        private static void Done()
+        {
+            capturing = null;
+            if (prompt) prompt.Close();
+            prompt = null;
         }
     }
 }

@@ -90,7 +90,7 @@ namespace AutoExploreExtended
                 if (headings && e.Definition.Section != section)
                 {
                     section = e.Definition.Section;
-                    rows.Add(new UiRow { Label = L.T(section), Heading = true, Section = true });
+                    rows.Add(new UiRow { Label = L.T(section == "Locked chests" ? "Locked containers" : section), Heading = true, Section = true }); // section key kept for saved settings
                 }
                 var row = Row(e); row.Hint = L.T(e.Description?.Description); rows.Add(row);
             }
@@ -122,11 +122,11 @@ namespace AutoExploreExtended
             if (e.Definition.Key == "PickIgnoresInstantActions") return "Lockpicks ignore instant actions";
             if (e.Definition.Key == "PryIgnoresInstantActions") return "Crowbars ignore instant actions";
             if (e.ConfigFile == own && e.Definition.Key == "PracticeChests") return "Practice chests (no damage, no charges used)";
-            if (e.ConfigFile == own && e.Definition.Key == "IncludeKarmaTargets") return "Include karma chests (NPC or lost property)";
-            if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Locked chests") return "Open locked chests (crowbar or lockpick)";
-            if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Digging") return "Dig floors and tracks (shovel selected)";
+            if (e.ConfigFile == own && e.Definition.Key == "IncludeKarmaTargets") return "Include karma containers (NPC or lost property)";
+            if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Locked chests") return "Open locked containers (crowbar or lockpick)";
+            if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Digging") return "Dig floors and tracks (when shovel tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Shearing")
-                return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (shears selected)";
+                return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (when shears tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "TracksWhileMining") return "Dig tracks while mining (swaps to your best shovel)";
             if (e.Definition.Key == "SelfMenuEntry") return "Show in your own action menu (middle-click yourself)";
             var k = e.Definition.Key; var s = new System.Text.StringBuilder();

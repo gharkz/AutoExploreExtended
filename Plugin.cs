@@ -16,7 +16,7 @@ namespace AutoExploreExtended
     //  - Crowbar / lockpick: opens every legal locked container (prying or picking), mainly for lockpicking experience;
     //    practice chests are always picked by hand (prying would destroy them). Karma/crime targets are excluded by default.
     // With one of these tools selected, AutoExplore's other gathering is set aside.
-    [BepInPlugin(Id, DisplayName, "1.0.1")]
+    [BepInPlugin(Id, DisplayName, "1.0.2")]
     [BepInDependency("yuof.elin.autoExplore.mod", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
@@ -33,7 +33,7 @@ namespace AutoExploreExtended
 
         private void Start()
         {
-            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.0.1 active."); }
+            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.0.2 active."); }
             catch (Exception e) { Logger.LogError(DisplayName + " disabled: " + e); }
         }
 
@@ -66,7 +66,7 @@ namespace AutoExploreExtended
             practiceOn = configuration.Bind("Locked chests", "PracticeChests", true,
                 "Also train on locked practice chests while holding a lockpick or crowbar. They are always picked by hand: never pried, never damaged, and no lockpick charges are used.");
             allowKarma = configuration.Bind("Locked chests", "IncludeKarmaTargets", false,
-                "Locked chests only: also open ones that cost karma or count as a crime (NPC property, lost property). Gathering and mining are not affected.");
+                "Locked containers only: also open ones that cost karma or count as a crime (NPC property, lost property). Gathering and mining are not affected.");
             pryIgnoresInstant = configuration.Bind("Compatibility", "PryIgnoresInstantActions", true,
                 "Prying (crowbar) by this mod runs at its normal length even with the Instant Actions mod on; instant prying stops after one tick and never opens anything.");
             pickIgnoresInstant = configuration.Bind("Compatibility", "PickIgnoresInstantActions", true,

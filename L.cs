@@ -29,7 +29,7 @@ namespace AutoExploreExtended
             ["Debug"] = ("デバッグ", "调试"),
             ["Restrictions"] = ("除外リスト", "排除列表"),
             ["Materials"] = ("素材", "材质"),
-            ["Locked chests"] = ("施錠された箱", "上锁的箱子"),
+            ["Locked containers"] = ("施錠された容器", "上锁的容器"),
             ["Digging"] = ("掘削", "挖掘"),
             ["Shearing"] = ("毛刈り", "剪毛"),
             ["Menu"] = ("メニュー", "菜单"),
@@ -65,10 +65,10 @@ namespace AutoExploreExtended
             ["Lockpicks ignore instant actions"] = ("ロックピックはInstant Actionsを無視", "开锁器忽略Instant Actions"),
             ["Crowbars ignore instant actions"] = ("バールはInstant Actionsを無視", "撬棍忽略Instant Actions"),
             ["Practice chests (no damage, no charges used)"] = ("練習用の箱（壊さず、回数も消費しない）", "练习箱（不损坏、不消耗次数）"),
-            ["Include karma chests (NPC or lost property)"] = ("カルマが下がる箱も開ける（NPCの物・落とし物）", "包括会降低业力的箱子（NPC财物或失物）"),
-            ["Open locked chests (crowbar or lockpick)"] = ("施錠された箱を開ける（バールかロックピック）", "打开上锁的箱子（撬棍或开锁器）"),
-            ["Dig floors and tracks (shovel selected)"] = ("床と線路を掘る（シャベル選択時）", "挖掘地板和轨道（选中铲子时）"),
-            ["Shear animals (shears selected)"] = ("動物の毛を刈る（ハサミ選択時）", "给动物剪毛（选中剪刀时）"),
+            ["Include karma containers (NPC or lost property)"] = ("カルマが下がる容器も開ける（NPCの物・落とし物）", "包括会降低业力的容器（NPC财物或失物）"),
+            ["Open locked containers (crowbar or lockpick)"] = ("施錠された容器を開ける（バールかロックピック）", "打开上锁的容器（撬棍或开锁器）"),
+            ["Dig floors and tracks (when shovel tool selected)"] = ("床と線路を掘る（シャベル選択時）", "挖掘地板和轨道（选中铲子时）"),
+            ["Shear animals (when shears tool selected)"] = ("動物の毛を刈る（ハサミ選択時）", "给动物剪毛（选中剪刀时）"),
             ["Dig tracks while mining (swaps to your best shovel)"] = ("採掘中に線路も掘る（最良のシャベルに持ち替え）", "采矿时也挖轨道（换用最好的铲子）"),
             ["Show in your own action menu (middle-click yourself)"] = ("自分の行動メニューに表示（自分を中クリック）", "在自己的行动菜单中显示（中键点击自己）"),
             ["Shear animals (off: the Shearing Extension handles it)"] = ("動物の毛を刈る（オフ：Shearing Extensionが担当）", "给动物剪毛（关闭：由Shearing Extension负责）"),
@@ -84,9 +84,9 @@ namespace AutoExploreExtended
             ["Also train on locked practice chests while holding a lockpick or crowbar. They are always picked by hand: never pried, never damaged, and no lockpick charges are used."] =
                 ("ロックピックかバールを持っているとき、施錠された練習用の箱でも訓練します。必ず手で解錠し、こじ開けたり壊したりせず、ロックピックの回数も消費しません。",
                  "持有开锁器或撬棍时，也会在上锁的练习箱上训练。始终徒手开锁：不撬、不损坏，也不消耗开锁器次数。"),
-            ["Locked chests only: also open ones that cost karma or count as a crime (NPC property, lost property). Gathering and mining are not affected."] =
-                ("施錠された箱のみ：カルマが下がる、または犯罪になる箱（NPCの物、落とし物）も開けます。採取と採掘には影響しません。",
-                 "仅限上锁的箱子：也打开会降低业力或算作犯罪的箱子（NPC财物、失物）。不影响采集和采矿。"),
+            ["Locked containers only: also open ones that cost karma or count as a crime (NPC property, lost property). Gathering and mining are not affected."] =
+                ("施錠された容器のみ：カルマが下がる、または犯罪になる容器（NPCの物、落とし物）も開けます。採取と採掘には影響しません。",
+                 "仅限上锁的容器：也打开会降低业力或算作犯罪的容器（NPC财物、失物）。不影响采集和采矿。"),
             ["Prying (crowbar) by this mod runs at its normal length even with the Instant Actions mod on; instant prying stops after one tick and never opens anything."] =
                 ("Instant Actions MODが有効でも、このMODのこじ開け（バール）は通常の長さで行います。即時のこじ開けは1回で止まり、何も開きません。",
                  "即使启用了Instant Actions MOD，本MOD的撬开（撬棍）也按正常时长进行；即时撬开只进行一次就停止，打不开任何东西。"),

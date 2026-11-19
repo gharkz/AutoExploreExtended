@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+Settings say "locked containers" instead of "locked chests" (clam shells and the like count too);
+practice chests keep their name. Tool labels read "when shovel/shears tool selected". No behaviour change.
+
 ## 1.0.1
 Internal rename: the DLL, namespace and mod ID now say AutoExploreExtended (they still said
 Lockpicking from development). Your settings and lists are carried over automatically.

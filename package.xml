@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Meta>
+  <title>AutoExplore Extended</title>
+  <id>gharkz.autoexplorelockpicking</id>
+  <author>gharkz</author>
+  <version>0.23.355</version>
+  <loadPriority>120</loadPriority>
+  <tags>General,QoL,Utility,english,japanese,schinese</tags>
+  <visibility>Public</visibility>
+  <description>[quote]
+Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]Yuof's AutoExplore[/url].
+
+Teaches AutoExplore to use more tools, and adds a settings window for all of it. Select a tool, start AutoExplore as usual, and it works the whole map.
+
+Tools
+- Crowbar or lockpick: opens locked chests you may legally open, for lockpicking experience. Practice chests are picked by hand: no damage, no charges used.
+- Shears: shears every shearable animal.
+- Shovel: digs up floors and tracks, in Gather or Mining mode.
+- Optional: dig tracks while mining. Swaps to your best shovel and back.
+
+Settings window
+- System > Mod > AutoExplore Extended, or middle-click yourself.
+- Every AutoExplore setting in one place, saved to AutoExplore's own config. Changes apply immediately.
+- Hover a setting to see what it does. Sliders with a one-click reset to defaults.
+
+Filters
+- Named restriction lists for gathering, mining and pickup. Keep several and switch between them.
+- Material filters per tool (pickaxe, axe, shovel): skip some materials, or take only the ones you list.
+- A checklist editor beside the raw list, with common things to skip suggested.
+
+Also
+- Rests in your bed instead of passing out.
+- Works with Instant Actions: prying and picking keep their normal length, so they actually open things.
+- Already using my Auto-Explore Shearing Extension? This mod includes it and turns its own shearing off while that one is enabled.
+
+English, Japanese and Simplified Chinese. Japanese and Simplified Chinese translations: Claude (AI).
+
+Disclosure: I used Codex and Claude (AI) as coding and translation assistants while building this mod. The Workshop preview image was drawn in code with Claude's help. The design, testing and final decisions are my own.
+
+Source: https://github.com/gharkz/AutoExploreExtended
+[/quote]
+
+[quote]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]YuofさんのAutoExplore[/url]が必要です。
+
+AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。道具を選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
+
+道具
+- バールかロックピック：合法に開けられる施錠された箱を開け、解錠の経験を得ます。練習用の箱は手で解錠し、壊さず、回数も消費しません。
+- ハサミ：毛を刈れる動物をすべて刈ります。
+- シャベル：採取モードか採掘モードで、床と線路を掘ります。
+- オプション：採掘中に線路も掘ります。最良のシャベルに持ち替え、終われば戻します。
+
+設定画面
+- システム＞MOD＞AutoExplore Extended、または自分を中クリック。
+- AutoExploreの全設定を一か所で。AutoExplore自身の設定ファイルに保存され、変更はすぐ反映されます。
+- 設定にマウスを合わせると説明を表示。スライダーはワンクリックで初期値に戻せます。
+
+フィルター
+- 採取・採掘・拾得の除外リストに名前を付けて複数保存し、切り替えられます。
+- 道具ごと（つるはし・斧・シャベル）の素材フィルター：指定した素材を除外、または指定した素材だけを対象に。
+- 元のリストの横にチェックリスト編集画面。よく除外するものを提案します。
+
+その他
+- 気絶せず、自分のベッドで休みます。
+- Instant Actions対応：こじ開けと解錠は通常の長さで行うので、ちゃんと開きます。
+- 私の「Auto-Explore Shearing Extension」を使っている場合：このMODにはその機能が含まれ、あちらが有効な間はこちらの毛刈りをオフにします。
+
+英語・日本語・簡体字中国語。日本語・簡体字中国語訳：Claude（AI）。
+
+開示: このModの制作では、コーディングと翻訳の補助にCodexとClaude(AI)を使用しました。ワークショップのプレビュー画像はClaudeの補助でコードにより描きました。設計・テスト・最終判断は私自身が行いました。
+
+ソースコード：https://github.com/gharkz/AutoExploreExtended
+[/quote]
+
+[quote]
+需要[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]Yuof的AutoExplore[/url]。
+
+让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中工具，照常启动AutoExplore，它就会处理整张地图。
+
+工具
+- 撬棍或开锁器：打开可以合法打开的上锁箱子，获得开锁经验。练习箱徒手开锁：不损坏，不消耗次数。
+- 剪刀：给所有可剪毛的动物剪毛。
+- 铲子：在采集或采矿模式下挖起地板和轨道。
+- 可选：采矿时也挖轨道。自动换上最好的铲子，再换回来。
+
+设置窗口
+- 系统>MOD>AutoExplore Extended，或中键点击自己。
+- AutoExplore的全部设置集中在一处，保存到AutoExplore自己的配置文件，更改立即生效。
+- 鼠标指向设置即可查看说明。滑块可一键恢复默认值。
+
+过滤
+- 采集、采矿、拾取排除列表可以命名并保存多份，随时切换。
+- 按工具（镐、斧、铲子）的材质过滤：跳过指定材质，或只处理指定材质。
+- 原始列表旁有勾选列表编辑器，并提供常见排除项建议。
+
+其他
+- 在自己的床上休息，而不是累倒。
+- 兼容Instant Actions：撬开和开锁保持正常时长，确实能打开。
+- 已在使用我的「Auto-Explore Shearing Extension」？本MOD已包含该功能，在那个MOD启用时会关闭自己的剪毛。
+
+英语、日语、简体中文。日语和简体中文翻译：Claude（AI）。
+
+说明: 制作本模组时，我使用了Codex与Claude(AI)作为编程与翻译助手。创意工坊预览图是在Claude的协助下用代码绘制的。设计、测试与最终决定均由我本人完成。
+
+源代码：https://github.com/gharkz/AutoExploreExtended
+[/quote]</description>
+</Meta>

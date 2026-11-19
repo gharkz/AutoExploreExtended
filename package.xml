@@ -29,7 +29,7 @@ Filters
 - A checklist editor beside the raw list, with common things to skip suggested.
 
 Also
-- Accounts for the Instant Actions mod if you have it enabled.
+- Using the Instant Actions mod? Crowbars and lockpicks can bypass it, so they actually open things. On by default; toggle it in the settings.
 - Already using my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]? This mod includes it and turns its own shearing off while that one is enabled.
 
 English, Japanese and Simplified Chinese. Japanese and Simplified Chinese translations: Claude (AI).
@@ -61,7 +61,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 - 元のリストの横にチェックリスト編集画面。よく除外するものを提案します。
 
 その他
-- Instant Actions MODを有効にしている場合にも対応しています。
+- Instant Actions MODを使っている場合：バールとロックピックはそれを無視して、ちゃんと開けられます。初期設定でオン。設定で切り替えられます。
 - 私の「[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]」を使っている場合：このMODにはその機能が含まれ、あちらが有効な間はこちらの毛刈りをオフにします。
 
 英語・日本語・簡体字中国語。日本語・簡体字中国語訳：Claude（AI）。
@@ -93,7 +93,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 - 原始列表旁有勾选列表编辑器，并提供常见排除项建议。
 
 其他
-- 如果启用了Instant Actions MOD，也已做好兼容。
+- 使用Instant Actions MOD？撬棍和开锁器可以绕过它，确保能真正打开。默认开启，可在设置中切换。
 - 已在使用我的「[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390]Auto-Explore Shearing Extension[/url]」？本MOD已包含该功能，在那个MOD启用时会关闭自己的剪毛。
 
 英语、日语、简体中文。日语和简体中文翻译：Claude（AI）。

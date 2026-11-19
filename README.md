@@ -19,7 +19,7 @@ System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore
 ## Also
 - Rests in your bed instead of passing out.
 - Works with Instant Actions (prying and picking keep their normal length).
-- Includes the Auto-Explore Shearing Extension; its own shearing turns off while that mod is enabled.
+- Includes the [Auto-Explore Shearing Extension](https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390); its own shearing turns off while that mod is enabled.
 
 English, Japanese and Simplified Chinese. Translations: Claude (AI).
 

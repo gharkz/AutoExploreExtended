@@ -13,7 +13,7 @@ Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]
 Extends AutoExplore to use more tools, and adds a settings window for all of it. Select a tool, start AutoExplore as usual, and it works the whole map.
 
 Tools
-- Crowbar or lockpick: opens locked chests you may legally open, for lockpicking experience.
+- Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like), for lockpicking experience.
 - Practice chests: holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
 - Shears: shears every shearable animal.
 - Shovel: digs up floors and tracks, in Gather or Mining mode.
@@ -46,7 +46,7 @@ Source: https://github.com/gharkz/AutoExploreExtended
 AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。道具を選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
 
 道具
-- バールかロックピック：合法に開けられる施錠された箱を開け、解錠の経験を得ます。
+- バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開け、解錠の経験を得ます。
 - 練習用の箱：バールかロックピックを持っていれば、マップ上の練習用の箱をすべて解錠して練習します。こじ開けで壊さず、ロックピックの回数も消費しません。
 - ハサミ：毛を刈れる動物をすべて刈ります。
 - シャベル：採取モードか採掘モードで、床と線路を掘ります。
@@ -79,7 +79,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中工具，照常启动AutoExplore，它就会处理整张地图。
 
 工具
-- 撬棍或开锁器：打开可以合法打开的上锁箱子，获得开锁经验。
+- 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等），获得开锁经验。
 - 练习箱：手持撬棍或开锁器时，会处理地图上所有练习箱来练习开锁。不会撬坏箱子，也不消耗开锁器次数。
 - 剪刀：给所有可剪毛的动物剪毛。
 - 铲子：在采集或采矿模式下挖起地板和轨道。

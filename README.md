@@ -3,7 +3,7 @@
 An Elin mod that extends [Yuof's AutoExplore](https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584) to use more tools, and adds a settings window for all of it. Requires AutoExplore.
 
 ## Tools
-- **Crowbar or lockpick:** opens locked chests you may legally open.
+- **Crowbar or lockpick:** opens locked containers you may legally open (chests, clam shells and the like).
 - **Practice chests:** holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
 - **Shears:** shears every shearable animal.
 - **Shovel:** digs up floors and tracks, in Gather or Mining mode.

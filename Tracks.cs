@@ -20,7 +20,7 @@ namespace AutoExploreExtended
             on = c.Bind("Digging", "TracksWhileMining", false,
                 "While mining with AutoExplore, also dig up tracks using your hardest carried shovel (swapped in and back automatically).");
 
-        internal static bool Ready => on != null && on.Value && Explorer.Instance != null && Explorer.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead && !EClass._zone.IsRegion &&
+        internal static bool Ready => !MultiTool.Active && on != null && on.Value && Explorer.Instance != null && Explorer.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead && !EClass._zone.IsRegion &&
             Explorer.Instance.AutoExplorerConfig.HandleMineables.Value && !Digging.Shovel && Best() != null;
 
         // Hardest shovel you carry (by material hardness), anywhere in your pack.

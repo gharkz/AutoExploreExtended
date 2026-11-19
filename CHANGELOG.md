@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+Multi-tool mode: named presets of tools; one pass over the map, swapping to the best carried tool for each job.
+Sickle first on reapable plants; lockpick before crowbar. Presets join AutoExplore's mode key after Combined or use
+their own key; reorder with arrows. New Multi-tool settings tab.
+
 ## 1.0.4
 New setting, on by default: shovel mode skips platforms and bridges (and the floor beneath them).
 Digging a raised platform out from under you can leave you stuck.

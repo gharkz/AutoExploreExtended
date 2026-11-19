@@ -9,6 +9,11 @@ An Elin mod that extends [Yuof's AutoExplore](https://steamcommunity.com/sharedf
 - **Shovel:** digs up floors and tracks, in Gather or Mining mode. Platforms and bridges are skipped by default (digging a raised platform out from under you can leave you stuck); toggle in the settings.
 - **Optional:** dig tracks while mining, swapping to your best shovel and back.
 
+## Multi-tool mode
+One pass over the map for several tools: AutoExplore swaps to your best carried tool for each job (sickle, axe,
+pickaxe, shovel, shears, lockpick, crowbar). Named presets pick the tools; the sickle goes first on anything it can
+reap, and lockpicks go before the crowbar. Presets join AutoExplore's mode key after Combined, or cycle with their own key.
+
 ## Settings window
 System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore setting in one place, saved to AutoExplore's own config; changes apply immediately, no game restart needed. Hover a setting to see what it does.
 

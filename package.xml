@@ -12,12 +12,19 @@ Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]
 
 Extends AutoExplore to use more tools, and adds a settings window for all of it. Select one of the newly supported tools, start AutoExplore as usual, and it works the whole map.
 
+New in 1.1: Multi-tool mode. Chop, reap, mine, dig, shear and unlock in a single pass, with AutoExplore swapping to your best tool for every job. No more running the same map once per tool.
+
 Tools
 - Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like), for lockpicking experience.
 - Practice chests: holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
 - Shears: shears every shearable animal.
 - Shovel: digs up floors and tracks, in Gather or Mining mode. Platforms and bridges are skipped by default: digging a raised platform out from under you can leave you stuck. You can turn that off in the settings.
 - Optional: dig tracks while mining. Swaps to your best shovel and back.
+
+Multi-tool mode
+- One pass over the map for several tools: AutoExplore swaps to your best carried tool for each job (sickle, axe, pickaxe, shovel, shears, lockpick, crowbar).
+- Named presets pick the tools. The sickle gets first claim on anything it can reap, for seeds. Lockpicks go first on chests, with the crowbar as fallback.
+- Presets join AutoExplore's mode key after Combined, or cycle with a key of their own. Reorder them with the arrows.
 
 Settings window
 - System > Mod > AutoExplore Extended, or middle-click yourself.
@@ -45,12 +52,19 @@ Source: https://github.com/gharkz/AutoExploreExtended
 
 AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。新たに対応した道具のどれかを選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
 
+1.1の新機能：マルチツールモード。伐採、刈り取り、採掘、掘削、毛刈り、解錠を一巡でこなし、作業ごとにAutoExploreが最良の道具に持ち替えます。道具ごとに同じマップを何周もする必要はもうありません。
+
 道具
 - バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開け、解錠の経験を得ます。
 - 練習用の箱：バールかロックピックを持っていれば、マップ上の練習用の箱をすべて解錠して練習します。こじ開けで壊さず、ロックピックの回数も消費しません。
 - ハサミ：毛を刈れる動物をすべて刈ります。
 - シャベル：採取モードか採掘モードで、床と線路を掘ります。足場と橋は初期設定で掘りません。高い足場を足元から掘ると動けなくなることがあるためです。設定でオフにできます。
 - オプション：採掘中に線路も掘ります。最良のシャベルに持ち替え、終われば戻します。
+
+マルチツールモード
+- 複数の道具の作業をマップ一巡で：作業ごとに持っている最良の道具へ持ち替えます（鎌、斧、つるはし、シャベル、ハサミ、ロックピック、バール）。
+- 名前付きプリセットで使う道具を選びます。鎌で刈れるもの（種）は鎌が最優先。宝箱はロックピックを先に使い、なくなればバールで開けます。
+- プリセットはAutoExploreのモードキーで「複合」の後に入るか、専用キーで切り替えます。矢印で順番を並べ替えられます。
 
 設定画面
 - システム＞MOD＞AutoExplore Extended、または自分を中クリック。
@@ -78,12 +92,19 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 
 让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中任一新支持的工具，照常启动AutoExplore，它就会处理整张地图。
 
+1.1新功能：多工具模式。伐木、收割、采矿、挖掘、剪毛、开锁一遍完成，每项工作AutoExplore都会换用最好的工具。不必再为每种工具把同一张地图跑一遍。
+
 工具
 - 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等），获得开锁经验。
 - 练习箱：手持撬棍或开锁器时，会处理地图上所有练习箱来练习开锁。不会撬坏箱子，也不消耗开锁器次数。
 - 剪刀：给所有可剪毛的动物剪毛。
 - 铲子：在采集或采矿模式下挖起地板和轨道。默认不挖平台和桥：把脚下的高架平台挖掉可能会让你被困住。可在设置中关闭。
 - 可选：采矿时也挖轨道。自动换上最好的铲子，再换回来。
+
+多工具模式
+- 走一遍地图完成多种工具的工作：每项工作都换用你携带的最好的工具（镰刀、斧、镐、铲子、剪刀、开锁器、撬棍）。
+- 用命名预设选择工具。能用镰刀收割的东西（种子）优先用镰刀。箱子先用开锁器，用完再用撬棍。
+- 预设可以排在AutoExplore模式键的“综合”之后，也可以用专用键切换。用箭头调整顺序。
 
 设置窗口
 - 系统>MOD>AutoExplore Extended，或中键点击自己。

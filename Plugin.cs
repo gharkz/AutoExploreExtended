@@ -16,7 +16,7 @@ namespace AutoExploreExtended
     //  - Crowbar / lockpick: opens every legal locked container (prying or picking), mainly for lockpicking experience;
     //    practice chests are always picked by hand (prying would destroy them). Karma/crime targets are excluded by default.
     // With one of these tools selected, AutoExplore's other gathering is set aside.
-    [BepInPlugin(Id, DisplayName, "1.0.4")]
+    [BepInPlugin(Id, DisplayName, "1.1.0")]
     [BepInDependency("yuof.elin.autoExplore.mod", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
@@ -33,7 +33,7 @@ namespace AutoExploreExtended
 
         private void Start()
         {
-            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.0.4 active."); }
+            try { Migrate(); Install(Config); Materials.Bind(Config); NamedRestrictions.Bind(Config); Digging.Bind(Config); Tracks.Bind(Config); SelfMenu.Bind(Config); MultiTool.Bind(Config); gameObject.AddComponent<MultiToolKey>(); Settings.Register(Config, gameObject); Profiler.Register(Config, gameObject); Logger.LogInfo(DisplayName + " 1.1.0 active."); }
             catch (Exception e) { Logger.LogError(DisplayName + " disabled: " + e); }
         }
 
@@ -87,7 +87,11 @@ namespace AutoExploreExtended
         internal static bool Lockpick => EClass.pc?.Tool?.trait is TraitLockpick;
 
         internal static bool Shears => EClass.pc?.Tool?.trait is TraitToolShears;
-        internal static bool ShearReady => shearOn != null && shearOn.Value && !ShearingExtension && Running && Shears;
+        internal static bool ShearReady => ShearOn && Running && Shears && !MultiTool.Active;
+        internal static bool ShearOn => shearOn != null && shearOn.Value && !ShearingExtension;
+        internal static bool LocksOn => on != null && on.Value;
+        // A job already chosen (by the tool mode or multi-tool mode) may run while AutoExplore runs in any work mode.
+        internal static bool Working => Explorer.Instance != null && Explorer.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead;
         // The standalone Auto-Explore Shearing Extension does the same job; when it's loaded, ours steps aside.
         internal static bool ShearingExtension => shearingExt ?? (bool)(shearingExt = HarmonyLib.AccessTools.TypeByName("AutoExploreShearing.Plugin") != null); // Elin only loads enabled mods' DLLs
         private static bool? shearingExt;
@@ -98,9 +102,11 @@ namespace AutoExploreExtended
         internal static bool Ready => on != null && on.Value &&
             Explorer.Instance != null && Explorer.Instance.IsRunning &&
             Explorer.Instance.AutoExplorerConfig.HandleHarvestables.Value &&
-            EClass.pc != null && !EClass.pc.isDead && (Crowbar || Lockpick);
+            EClass.pc != null && !EClass.pc.isDead && (Crowbar || Lockpick) && !MultiTool.Active;
 
-        internal static bool Eligible(Thing t)
+        internal static bool Eligible(Thing t) => Eligible(t, Crowbar);
+
+        internal static bool Eligible(Thing t, bool crowbar)
         {
             var pc = EClass.pc;
             if (t == null || t.isDestroyed || !t.IsContainer || t.c_lockLv <= 0 || t.isMasked || t.isHidden) return false;
@@ -110,7 +116,7 @@ namespace AutoExploreExtended
             if (Explorer.Instance.IgnoreList.Gathering.Contains(t.Name)) return false;
             // Picking needs enough skill for the lock (native rule); prying always works eventually.
             if (Practice(t)) { if (!practiceOn.Value) return false; }
-            else if (!Crowbar && !CanPick(t)) return false;
+            else if (!crowbar && !CanPick(t)) return false;
             return true; // stamina: the job rests first through AutoExplore's own routine (bed when you have one)
         }
 
@@ -204,7 +210,7 @@ namespace AutoExploreExtended
 
         public override IEnumerable<Status> Run()
         {
-            if (!Plugin.Ready || !Plugin.Eligible(Target)) yield break;
+            if (!Plugin.LocksOn || !Plugin.Working || !(Plugin.Crowbar || Plugin.Lockpick) || !Plugin.Eligible(Target)) yield break;
             pry = Plugin.Crowbar && !Plugin.Practice(Target); // practice chests: always picked by hand
             isFail = () => !Running;
             for (int round = 0; round < 200 && !Open && Running; round++)

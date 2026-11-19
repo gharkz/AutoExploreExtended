@@ -27,7 +27,8 @@ namespace AutoExploreExtended
         }
 
         internal static bool Shovel => EClass.pc?.Tool != null && EClass.pc.Tool.HasElement(Dig);
-        internal static bool Ready => on != null && on.Value && Elin_AutoExplore.Plugin.Instance != null && Elin_AutoExplore.Plugin.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead && Shovel && !EClass._zone.IsRegion &&
+        internal static bool On => on != null && on.Value;
+        internal static bool Ready => !MultiTool.Active && on != null && on.Value && Elin_AutoExplore.Plugin.Instance != null && Elin_AutoExplore.Plugin.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead && Shovel && !EClass._zone.IsRegion &&
             (Harvest || Mine);
         private static bool Harvest => Elin_AutoExplore.Plugin.Instance.AutoExplorerConfig.HandleHarvestables.Value;
         private static bool Mine => Elin_AutoExplore.Plugin.Instance.AutoExplorerConfig.HandleMineables.Value;
@@ -38,22 +39,24 @@ namespace AutoExploreExtended
             get { if (dugZone != EClass._zone) { dug.Clear(); dugZone = EClass._zone; } return dug; }
         }
 
-        internal static BaseTaskHarvest Task(Point p)
+        internal static BaseTaskHarvest Task(Point p) => Task(p, EClass.pc.Tool);
+
+        internal static BaseTaskHarvest Task(Point p, Thing tool)
         {
             if (p == null || !p.IsInBounds || Dug.Contains(Key(p))) return null;
             if (EClass._zone.IsPCFaction && p.cell.isModified) return null; // your own floors/objects at home
             // Tracks (objects the game harvests with a shovel); loose things are left alone.
             if (p.HasObj && p.sourceObj.reqHarvest?.Length > 0 && p.sourceObj.reqHarvest[0] == "digging")
             {
-                var h = TaskHarvest.TryGetAct(EClass.pc, p);
-                h?.SetTarget(EClass.pc, EClass.pc.Tool);
-                if (h != null && h.idEle == Dig && !h.IsTooHard && Materials.Allowed(h)) return h;
+                var h = new TaskHarvest { pos = p.Copy() };
+                h.SetTarget(EClass.pc, tool);
+                if (h.idEle == Dig && !h.IsTooHard && Materials.Allowed(h)) return h;
             }
             if (p.IsWater || p.HasObj || p.HasBlock || p.Installed != null) return null; // stairs are installed things
             if (p.HasBridge && skipPlatforms.Value) return null; // the platform, and the floor under it, stay
             var task = new TaskDig { pos = p.Copy(), mode = TaskDig.Mode.RemoveFloor, owner = EClass.pc };
             if (task.GetHitResult() != HitResult.Valid) return null;
-            task.SetTarget(EClass.pc, EClass.pc.Tool);
+            task.SetTarget(EClass.pc, tool);
             if (task.IsTooHard || !Materials.Allowed(task)) return null;
             return task;
         }

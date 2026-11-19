@@ -189,6 +189,50 @@ namespace AutoExploreExtended
             ["soil_only"] = ("土のみ", "仅土壤"),
             ["no_grass_or_sand"] = ("草と砂を除外", "排除草和沙子"),
 
+            // Multi-tool mode
+            ["Multi-tool"] = ("マルチツール", "多工具"),
+            ["Multi-tool: {0}"] = ("マルチツール：{0}", "多工具：{0}"),
+            ["One pass over the map: every job the active preset allows, swapping to your best tool for each."] =
+                ("マップを一巡するだけで、有効なプリセットが許すすべての作業を、それぞれ最良の道具に持ち替えて行います。", "只需走一遍地图：完成当前预设允许的所有工作，每项都换用最好的工具。"),
+            ["The sickle goes first on anything it can reap. Your filters and lists still apply."] =
+                ("鎌で刈れるものは鎌が最優先です。フィルターとリストはそのまま適用されます。", "可以用镰刀收割的东西优先用镰刀。过滤和列表照常生效。"),
+            ["Presets join AutoExplore's mode key: Explore, Gather, Mining, Combined, then each preset."] =
+                ("プリセットはAutoExploreのモード切り替えキーに加わります：探索、採取、採掘、複合、そして各プリセット。", "预设加入AutoExplore的模式切换键：探索、采集、采矿、综合，然后是各个预设。"),
+            ["Manage presets"] = ("プリセットの管理", "管理预设"),
+            ["Manage..."] = ("管理...", "管理..."),
+            ["Cycle presets with"] = ("プリセットの切り替え方法", "预设切换方式"),
+            ["AutoExplore Toggle Hotkey"] = ("AutoExploreの切り替えキー", "AutoExplore切换键"),
+            ["Multi-Tool Toggle Hotkey"] = ("マルチツールの切り替えキー", "多工具切换键"),
+            ["AutoExplore Toggle Hotkey: presets come after Combined when you cycle AutoExplore's modes. Multi-Tool Toggle Hotkey: a key of its own cycles Off and the presets, and AutoExplore's mode key goes back to its own modes."] =
+                ("AutoExploreの切り替えキー：AutoExploreのモードを切り替えると、「複合」の後にプリセットが来ます。マルチツールの切り替えキー：専用のキーでオフと各プリセットを切り替え、AutoExploreのモードキーは通常のモードに戻ります。",
+                 "AutoExplore切换键：切换AutoExplore的模式时，预设排在“综合”之后。多工具切换键：用专用键在关闭和各预设之间切换，AutoExplore的模式键则回到它自己的模式。"),
+            ["The key that cycles Off and the presets, when presets use the Multi-Tool Toggle Hotkey."] = ("マルチツールの切り替えキーを使う場合に、オフと各プリセットを切り替えるキーです。", "使用多工具切换键时，用于在关闭和各预设之间切换的键。"),
+            ["Active preset"] = ("使用中のプリセット", "当前预设"),
+            ["Presets"] = ("プリセット", "预设"),
+            ["1 preset"] = ("1個のプリセット", "1个预设"),
+            ["{0} presets"] = ("{0}個のプリセット", "{0}个预设"),
+            ["all tools"] = ("すべての道具", "全部工具"),
+            ["{0} tools"] = ("{0}種の道具", "{0}种工具"),
+            ["Preset (in cycle)"] = ("プリセット（切り替え対象）", "预设（参与切换）"),
+            ["Tools"] = ("道具", "工具"),
+            ["Delete the preset \"{0}\"?"] = ("プリセット「{0}」を削除しますか？", "删除预设“{0}”？"),
+            ["Click a preset to add it to or remove it from the cycle. The arrows set the cycle order.\nYou can't delete the last preset.\nName presets for what they do, e.g. trees_and_chests."] =
+                ("プリセットをクリックすると、切り替え対象に入れたり外したりできます。矢印で切り替えの順番を決めます。\n最後のプリセットは削除できません。\nプリセットには内容が分かる名前を付けてください（例：木と宝箱）。",
+                 "点击预设可将其加入或移出切换。箭头决定切换顺序。\n无法删除最后一个预设。\n请按用途给预设命名，例如“树木和箱子”。"),
+            ["Multi-tool presets"] = ("マルチツールのプリセット", "多工具预设"),
+            ["New Preset"] = ("新しいプリセット", "新建预设"),
+            ["New preset"] = ("新しいプリセット", "新建预设"),
+            ["Tools: {0}"] = ("道具：{0}", "工具：{0}"),
+            ["Each job uses the best one you carry. Jobs whose own setting is off are skipped."] =
+                ("各作業には持っている中で最良の道具を使います。個別の設定がオフの作業は行いません。", "每项工作都使用你携带的最好的工具。单项设置关闭的工作会跳过。"),
+            ["Hotkey to cycle presets"] = ("プリセット切り替えのホットキー", "切换预设的快捷键"),
+            ["Cycles multi-tool presets: Off, then each preset marked for the cycle, then Off again."] =
+                ("マルチツールのプリセットを切り替えます：オフ、切り替え対象の各プリセット、そしてオフに戻ります。", "切换多工具预设：关闭，然后依次为每个参与切换的预设，再回到关闭。"),
+            ["Sickle"] = ("鎌", "镰刀"),
+            ["Lockpick"] = ("ロックピック", "开锁器"),
+            ["Crowbar"] = ("バール", "撬棍"),
+            ["Shears"] = ("ハサミ", "剪刀"),
+
             // Text editor and checklist
             ["OK"] = ("OK", "确定"),
             ["Cancel"] = ("キャンセル", "取消"),

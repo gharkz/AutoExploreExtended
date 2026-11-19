@@ -48,8 +48,8 @@ namespace AutoExploreExtended
 
         public override IEnumerable<Status> Run()
         {
-            isFail = () => !Plugin.ShearReady || !Target.IsAliveInCurrentZone;
-            if (!Plugin.ShearReady || !Shearing.Eligible(Target)) yield break;
+            isFail = () => !Plugin.ShearOn || !Plugin.Working || !Plugin.Shears || !Target.IsAliveInCurrentZone;
+            if (!Plugin.ShearOn || !Plugin.Working || !Plugin.Shears || !Shearing.Eligible(Target)) yield break;
             // Native shearing spends one stamina per affected NPC. Preserve a
             // positive reserve, including wide shears, using native meditation.
             if (!EnoughStamina(owner, Target)) { Plugin.Rest(); yield break; } // AutoExplore's own rest (bed), then this sheep again
@@ -80,7 +80,7 @@ namespace AutoExploreExtended
         {
             // Native progress rechecks IsValidTC, so switching tools/modes or an
             // animal moving into the wide area cannot spend the stamina reserve.
-            public override bool IsValidTC(Card c) => base.IsValidTC(c) && Plugin.ShearReady &&
+            public override bool IsValidTC(Card c) => base.IsValidTC(c) && Plugin.ShearOn && Plugin.Shears &&
                 EnoughStamina(owner, c.Chara);
         }
     }

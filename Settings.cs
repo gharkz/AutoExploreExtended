@@ -18,8 +18,9 @@ namespace AutoExploreExtended
         private static ConfigEntryBase capturing;   // key binding waiting for a key press
         private static UiRow capturingRow;
         private static Dialog prompt;                // the "press a key" prompt while capturing
-        private static readonly float[] Edges = { 0f, .56f, .66f, .90f, 1f }; // name | − | value | +
+        private static readonly float[] Edges = { 0f, .50f, .53f, .90f, 1f }; // name | (gap) | value | slider number
         private const string Title = "AutoExplore Extended";
+        private const float Width = 900;
 
         internal static void Register(ConfigFile ownConfig, GameObject host)
         {
@@ -51,6 +52,7 @@ namespace AutoExploreExtended
                 }
                 if (debug != null && debug.Count > 0) tabs.Add(("Debug", debug));
             }
+            tabs.Add(("Multi-tool", Take("Multi-tool")));
             tabs.Add(("Tools", mine));
             return tabs;
         }
@@ -61,7 +63,7 @@ namespace AutoExploreExtended
             if (win != null && win.Layer != null) win.Layer.Close();
             tab = Mathf.Clamp(tab, 0, Tabs().Count - 1);
             var (rows, h) = Build();
-            win = UiTable.Open(Title, rows, Edges, 780, h);
+            win = UiTable.Open(Title, rows, Edges, Width, h);
             win.Layer.SetOnKill(() => { win = null; capturing = null; });
         }
 
@@ -69,7 +71,7 @@ namespace AutoExploreExtended
         {
             tab = t; capturing = null;
             var (rows, h) = Build();
-            UiTable.Rebuild(win, Title, rows, Edges, 780, h);
+            UiTable.Rebuild(win, Title, rows, Edges, Width, h);
         }
 
         private static (List<UiRow>, float) Build()
@@ -80,6 +82,11 @@ namespace AutoExploreExtended
             bool ours = tab == tabs.Count - 1;
             bool materials = false;
             bool headings = ours || tabs[tab].entries.Select(x => x.Definition.Section).Distinct().Count() > 1;
+            if (tabs[tab].name == "Multi-tool") // presets live in their own file; the cycle settings follow
+            {
+                rows.Add(new UiRow { Label = L.T("Multi-tool"), Heading = true, Section = true });
+                rows.AddRange(MultiToolUi.Rows(() => Show(tab)));
+            }
             foreach (var e in tabs[tab].entries)
             {
                 // The Materials section has its own rows (filter mode + named lists).
@@ -104,7 +111,7 @@ namespace AutoExploreExtended
                     Choice = true,
                     Click = r => { foreach (var e in numbers) e.BoxedValue = e.DefaultValue; Show(tab); },
                 });
-            rows.Add(new UiRow { Label = L.T(ours ? "This mod's settings." : tabs[tab].entries.Any(x => x.ConfigFile == own)
+            rows.Add(new UiRow { Label = L.T(ours || tabs[tab].entries.All(x => x.ConfigFile == own) ? "This mod's settings." : tabs[tab].entries.Any(x => x.ConfigFile == own)
                 ? "AutoExplore's settings save to AutoExplore's config file; this mod's settings save to its own." : "AutoExplore's own settings, saved to its config file."), Note = true, Info = true });
             if (tabs[tab].name != "Filters") // Filters scrolls past it, and its lists explain themselves
                 rows.Add(new UiRow { Label = L.T("Point at a setting to see what it does."), Note = true, Info = true, HintRow = true });
@@ -130,6 +137,8 @@ namespace AutoExploreExtended
                 return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (when shears tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "SkipPlatforms") return "Don't dig platforms (or the floor under them)";
             if (e.ConfigFile == own && e.Definition.Key == "TracksWhileMining") return "Dig tracks while mining (swaps to your best shovel)";
+            if (e.ConfigFile == own && e.Definition.Key == "CycleWith") return "Cycle presets with";
+            if (e.ConfigFile == own && e.Definition.Key == "OwnKey") return "Multi-Tool Toggle Hotkey";
             if (e.Definition.Key == "SelfMenuEntry") return "Show in your own action menu (middle-click yourself)";
             var k = e.Definition.Key; var s = new System.Text.StringBuilder();
             for (int i = 0; i < k.Length; i++)
@@ -140,9 +149,9 @@ namespace AutoExploreExtended
             return s.ToString();
         }
 
-        private static UiRow Value(ConfigEntryBase e, string shown, Action<UiRow> click) => new UiRow
+        private static UiRow Value(ConfigEntryBase e, string shown, Action<UiRow> click, string display = null) => new UiRow
         {
-            Label = Name(e), Cells = new[] { "", shown, "" },
+            Label = Name(e), Cells = new[] { "", display ?? shown, "" },
             CellClick = new Action<UiRow, int>[] { null, (r, _) => click(r), null },
         };
 
@@ -185,9 +194,9 @@ namespace AutoExploreExtended
                 return Value(e, v.ToString(), r =>
                 {
                     var values = Enum.GetValues(v.GetType()).Cast<object>().ToList();
-                    UiTable.Choose(Name(e), values.Select(x => (x.ToString(), (Action)(() => { e.BoxedValue = x; UiTable.SetCell(r, 1, x.ToString()); }))).ToList(),
+                    UiTable.Choose(Name(e), values.Select(x => (Shown(x), (Action)(() => { e.BoxedValue = x; UiTable.SetCell(r, 1, Shown(x)); }))).ToList(),
                         values.IndexOf(e.BoxedValue));
-                });
+                }, Shown(v));
 
             if (NamedRestrictions.Handles(e))
                 return Value(e, NamedRestrictions.ActiveName(e), r => NamedRestrictions.Manage(e, Name(e), L.T(e.Description?.Description), () => Show(tab)));
@@ -199,6 +208,10 @@ namespace AutoExploreExtended
 
             return new UiRow { Label = Name(e), Cells = new[] { "", v?.ToString() ?? "", "" } };
         }
+
+        // Enum values as shown in the window.
+        private static string Shown(object x) => L.T(x is MultiTool.CycleStyle cs
+            ? (cs == MultiTool.CycleStyle.ModeKey ? "AutoExplore Toggle Hotkey" : "Multi-Tool Toggle Hotkey") : x.ToString());
 
         private static string Short(string s) => string.IsNullOrEmpty(s) ? L.T("(none)") : s.Length > 16 ? s.Substring(0, 16) + "…" : s;
 

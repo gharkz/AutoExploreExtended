@@ -17,7 +17,7 @@ System > Mod > AutoExplore Extended, or middle-click yourself. Every AutoExplore
 - A checklist editor beside the raw list.
 
 ## Also
-- Using the Instant Actions mod? Crowbars and lockpicks can bypass it, so they actually open things. On by default; toggle it in the settings.
+- Using the Instant Actions mod? Crowbar prying bypasses it, so chests actually open. On by default; lockpicks have the same option. Toggle either in the settings.
 - Includes the [Auto-Explore Shearing Extension](https://steamcommunity.com/sharedfiles/filedetails/?id=3837309390); its own shearing turns off while that mod is enabled.
 
 English, Japanese and Simplified Chinese. Translations: Claude (AI).

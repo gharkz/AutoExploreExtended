@@ -10,7 +10,7 @@
   <description>[quote]
 Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]Yuof's AutoExplore[/url].
 
-Extends AutoExplore to use more tools, and adds a settings window for all of it. Select a tool, start AutoExplore as usual, and it works the whole map.
+Extends AutoExplore to use more tools, and adds a settings window for all of it. Select one of the newly supported tools, start AutoExplore as usual, and it works the whole map.
 
 Tools
 - Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like), for lockpicking experience.
@@ -43,7 +43,7 @@ Source: https://github.com/gharkz/AutoExploreExtended
 [quote]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]YuofさんのAutoExplore[/url]が必要です。
 
-AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。道具を選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
+AutoExploreが使える道具を増やし、すべてをまとめた設定画面を追加します。新たに対応した道具のどれかを選んで、いつもどおりAutoExploreを開始すれば、マップ全体で作業します。
 
 道具
 - バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開け、解錠の経験を得ます。
@@ -76,7 +76,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 [quote]
 需要[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3365829584]Yuof的AutoExplore[/url]。
 
-让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中工具，照常启动AutoExplore，它就会处理整张地图。
+让AutoExplore能使用更多工具，并添加一个集中所有设置的窗口。选中任一新支持的工具，照常启动AutoExplore，它就会处理整张地图。
 
 工具
 - 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等），获得开锁经验。

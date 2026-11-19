@@ -6,7 +6,7 @@ An Elin mod that extends [Yuof's AutoExplore](https://steamcommunity.com/sharedf
 - **Crowbar or lockpick:** opens locked containers you may legally open (chests, clam shells and the like).
 - **Practice chests:** holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
 - **Shears:** shears every shearable animal.
-- **Shovel:** digs up floors and tracks, in Gather or Mining mode.
+- **Shovel:** digs up floors and tracks, in Gather or Mining mode. Platforms and bridges are skipped by default (digging a raised platform out from under you can leave you stuck); toggle in the settings.
 - **Optional:** dig tracks while mining, swapping to your best shovel and back.
 
 ## Settings window

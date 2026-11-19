@@ -16,7 +16,7 @@ Tools
 - Crowbar or lockpick: opens locked containers you may legally open (chests, clam shells and the like), for lockpicking experience.
 - Practice chests: holding a crowbar or lockpick, it works every practice chest on the map for lockpicking practice. No pry damage, no lockpick charges used.
 - Shears: shears every shearable animal.
-- Shovel: digs up floors and tracks, in Gather or Mining mode.
+- Shovel: digs up floors and tracks, in Gather or Mining mode. Platforms and bridges are skipped by default: digging a raised platform out from under you can leave you stuck. You can turn that off in the settings.
 - Optional: dig tracks while mining. Swaps to your best shovel and back.
 
 Settings window
@@ -49,7 +49,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 - バールかロックピック：合法に開けられる施錠された容器（箱や貝など）を開け、解錠の経験を得ます。
 - 練習用の箱：バールかロックピックを持っていれば、マップ上の練習用の箱をすべて解錠して練習します。こじ開けで壊さず、ロックピックの回数も消費しません。
 - ハサミ：毛を刈れる動物をすべて刈ります。
-- シャベル：採取モードか採掘モードで、床と線路を掘ります。
+- シャベル：採取モードか採掘モードで、床と線路を掘ります。足場と橋は初期設定で掘りません。高い足場を足元から掘ると動けなくなることがあるためです。設定でオフにできます。
 - オプション：採掘中に線路も掘ります。最良のシャベルに持ち替え、終われば戻します。
 
 設定画面
@@ -82,7 +82,7 @@ AutoExploreが使える道具を増やし、すべてをまとめた設定画面
 - 撬棍或开锁器：打开可以合法打开的上锁容器（箱子、贝壳等），获得开锁经验。
 - 练习箱：手持撬棍或开锁器时，会处理地图上所有练习箱来练习开锁。不会撬坏箱子，也不消耗开锁器次数。
 - 剪刀：给所有可剪毛的动物剪毛。
-- 铲子：在采集或采矿模式下挖起地板和轨道。
+- 铲子：在采集或采矿模式下挖起地板和轨道。默认不挖平台和桥：把脚下的高架平台挖掉可能会让你被困住。可在设置中关闭。
 - 可选：采矿时也挖轨道。自动换上最好的铲子，再换回来。
 
 设置窗口

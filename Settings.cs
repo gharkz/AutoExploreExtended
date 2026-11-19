@@ -128,6 +128,7 @@ namespace AutoExploreExtended
             if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Digging") return "Dig floors and tracks (when shovel tool selected)";
             if (e.ConfigFile == own && e.Definition.Key == "Enabled" && e.Definition.Section == "Shearing")
                 return Plugin.ShearingExtension ? "Shear animals (off: the Shearing Extension handles it)" : "Shear animals (when shears tool selected)";
+            if (e.ConfigFile == own && e.Definition.Key == "SkipPlatforms") return "Don't dig platforms (or the floor under them)";
             if (e.ConfigFile == own && e.Definition.Key == "TracksWhileMining") return "Dig tracks while mining (swaps to your best shovel)";
             if (e.Definition.Key == "SelfMenuEntry") return "Show in your own action menu (middle-click yourself)";
             var k = e.Definition.Key; var s = new System.Text.StringBuilder();

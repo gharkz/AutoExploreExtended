@@ -72,6 +72,10 @@ namespace AutoExploreExtended
             ["Dig tracks while mining (swaps to your best shovel)"] = ("採掘中に線路も掘る（最良のシャベルに持ち替え）", "采矿时也挖轨道（换用最好的铲子）"),
             ["Show in your own action menu (middle-click yourself)"] = ("自分の行動メニューに表示（自分を中クリック）", "在自己的行动菜单中显示（中键点击自己）"),
             ["Shear animals (off: the Shearing Extension handles it)"] = ("動物の毛を刈る（オフ：Shearing Extensionが担当）", "给动物剪毛（关闭：由Shearing Extension负责）"),
+            ["Don't dig platforms (or the floor under them)"] = ("足場は掘らない（その下の床も）", "不挖平台（及其下方的地板）"),
+            ["Never dig tiles with a platform or bridge on them (nor the floor beneath). Digging raised platforms out from under you can leave you stuck."] =
+                ("足場や橋のあるタイル（とその下の床）は掘りません。高い足場を足元から掘ると、動けなくなることがあります。",
+                 "不挖有平台或桥的格子（及其下方的地板）。把脚下的高架平台挖掉可能会让你被困住。"),
             ["Profile"] = ("計測", "性能分析"),
 
             // Our settings (descriptions, shown as hover hints)

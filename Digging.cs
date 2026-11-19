@@ -15,12 +15,16 @@ namespace AutoExploreExtended
     internal static class Digging
     {
         private const int Dig = 230;
-        private static ConfigEntry<bool> on;
+        private static ConfigEntry<bool> on, skipPlatforms;
         private static readonly HashSet<int> dug = new HashSet<int>();
         private static Zone dugZone;
 
-        internal static void Bind(ConfigFile c) =>
+        internal static void Bind(ConfigFile c)
+        {
             on = c.Bind("Digging", "Enabled", true, "Dig up floors with AutoExplore in Gather, Mining or Combined mode while a shovel is selected.");
+            skipPlatforms = c.Bind("Digging", "SkipPlatforms", true,
+                "Never dig tiles with a platform or bridge on them (nor the floor beneath). Digging raised platforms out from under you can leave you stuck.");
+        }
 
         internal static bool Shovel => EClass.pc?.Tool != null && EClass.pc.Tool.HasElement(Dig);
         internal static bool Ready => on != null && on.Value && Elin_AutoExplore.Plugin.Instance != null && Elin_AutoExplore.Plugin.Instance.IsRunning && EClass.pc != null && !EClass.pc.isDead && Shovel && !EClass._zone.IsRegion &&
@@ -46,6 +50,7 @@ namespace AutoExploreExtended
                 if (h != null && h.idEle == Dig && !h.IsTooHard && Materials.Allowed(h)) return h;
             }
             if (p.IsWater || p.HasObj || p.HasBlock || p.Installed != null) return null; // stairs are installed things
+            if (p.HasBridge && skipPlatforms.Value) return null; // the platform, and the floor under it, stay
             var task = new TaskDig { pos = p.Copy(), mode = TaskDig.Mode.RemoveFloor, owner = EClass.pc };
             if (task.GetHitResult() != HitResult.Valid) return null;
             task.SetTarget(EClass.pc, EClass.pc.Tool);

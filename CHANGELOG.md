@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+New setting, on by default: shovel mode skips platforms and bridges (and the floor beneath them).
+Digging a raised platform out from under you can leave you stuck.
+
 ## 1.0.3
 Key settings now ask you to press a key, like the game's own key binding (Esc cancels, Del clears),
 instead of opening a list of every key.
